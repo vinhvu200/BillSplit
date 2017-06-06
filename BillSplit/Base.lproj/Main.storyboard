@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QNI-JH-Nby">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Image View Controller-->
+        <scene sceneID="6YR-Ci-0yB">
+            <objects>
+                <viewController id="QNI-JH-Nby" customClass="SelectImageViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bt2-qQ-rak"/>
+                        <viewControllerLayoutGuide type="bottom" id="uph-eJ-cnc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oB2-1n-GDK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-XK-Dir">
+                                <rect key="frame" x="8" y="55" width="359" height="479.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foR-EB-gAM">
+                                        <rect key="frame" x="112" y="0.0" width="135" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="420" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="tKd-uC-qpe">
+                                        <rect key="frame" x="0.0" y="55.5" width="359" height="359"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="tKd-uC-qpe" secondAttribute="height" multiplier="1:1" id="Iab-qD-Aj8"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="jr6-uP-jf4" appends="YES" id="OMA-GG-vG2"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHT-Gb-gkr">
+                                        <rect key="frame" x="8" y="449.5" width="343" height="30"/>
+                                        <state key="normal" title="Process"/>
+                                        <connections>
+                                            <action selector="processImageTapped:" destination="QNI-JH-Nby" eventType="touchUpInside" id="SQz-tI-eQb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fHT-Gb-gkr" secondAttribute="trailing" constant="8" id="J0Y-R6-RLb"/>
+                                    <constraint firstItem="fHT-Gb-gkr" firstAttribute="leading" secondItem="L3I-XK-Dir" secondAttribute="leading" constant="8" id="pwc-rj-knc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L3I-XK-Dir" firstAttribute="leading" secondItem="oB2-1n-GDK" secondAttribute="leading" constant="8" id="OEr-xr-1Ls"/>
+                            <constraint firstItem="L3I-XK-Dir" firstAttribute="top" secondItem="Bt2-qQ-rak" secondAttribute="bottom" constant="35" id="UAD-66-h4F"/>
+                            <constraint firstAttribute="trailing" secondItem="L3I-XK-Dir" secondAttribute="trailing" constant="8" id="x3m-YQ-l44"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="tKd-uC-qpe" id="1ud-Tb-Tkw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFu-dI-Jet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jr6-uP-jf4">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="QNI-JH-Nby" id="dgR-GB-kBF"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-857" y="123"/>
+        </scene>
+        <!--Process View Controller-->
+        <scene sceneID="C1I-kX-dQG">
+            <objects>
+                <viewController restorationIdentifier="ProcessViewController" storyboardIdentifier="ProcessViewController" id="vlh-SE-XyV" customClass="ProcessViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="83I-L0-KDc"/>
+                        <viewControllerLayoutGuide type="bottom" id="nto-qv-Ob5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="243-tN-H77">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dfU-cw-XIg">
+                                <rect key="frame" x="8" y="45" width="359" height="574"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="300" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9GO-cd-w0t">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="359"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9GO-cd-w0t" secondAttribute="height" multiplier="1:1" id="5Kh-X4-O1k"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfr-ry-q3T">
+                                        <rect key="frame" x="0.0" y="374" width="359" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xfr-ry-q3T" secondAttribute="trailing" id="1Mx-0X-gpu"/>
+                                    <constraint firstItem="xfr-ry-q3T" firstAttribute="leading" secondItem="dfU-cw-XIg" secondAttribute="leading" id="7ja-xA-JpP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dfU-cw-XIg" secondAttribute="trailing" constant="8" id="Rx9-eo-4aj"/>
+                            <constraint firstItem="dfU-cw-XIg" firstAttribute="leading" secondItem="243-tN-H77" secondAttribute="leading" constant="8" id="gDe-eE-2yn"/>
+                            <constraint firstItem="dfU-cw-XIg" firstAttribute="top" secondItem="83I-L0-KDc" secondAttribute="bottom" constant="25" id="oEl-uZ-fMM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hu7-hZ-krv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120.8" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="defaultPhoto" width="540" height="540"/>
+    </resources>
+</document>
