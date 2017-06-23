@@ -54,6 +54,21 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func processImageTapped(_ sender: UIButton) {
         
+        let image = photoImageView.image
+        performSegue(withIdentifier: "processSegue", sender: image)
+    }
+    
+    // MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "processSegue" {
+            
+            if let processVC = segue.destination as? ProcessViewController {
+                
+                processVC.passedImage = sender as? UIImage
+            }
+        }
     }
     
 

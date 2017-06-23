@@ -10,10 +10,14 @@ import UIKit
 
 class ProcessViewController: UIViewController {
 
+    @IBOutlet weak var processImageView: UIImageView!
+    var passedImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        processImageView.image = passedImage
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QNI-JH-Nby">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ew7-Al-0PE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Select Image View Controller-->
+        <!--Receipt-->
         <scene sceneID="6YR-Ci-0yB">
             <objects>
                 <viewController id="QNI-JH-Nby" customClass="SelectImageViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,17 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-XK-Dir">
-                                <rect key="frame" x="8" y="55" width="359" height="479.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-XK-Dir">
+                                <rect key="frame" x="8" y="99" width="359" height="470.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foR-EB-gAM">
-                                        <rect key="frame" x="112" y="0.0" width="135" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foR-EB-gAM">
+                                        <rect key="frame" x="89.5" y="0.0" width="180.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                        <color key="textColor" red="0.43932519438633844" green="0.50107355484511751" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="420" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="tKd-uC-qpe">
-                                        <rect key="frame" x="0.0" y="55.5" width="359" height="359"/>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="420" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="tKd-uC-qpe">
+                                        <rect key="frame" x="0.0" y="50.5" width="359" height="359"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tKd-uC-qpe" secondAttribute="height" multiplier="1:1" id="Iab-qD-Aj8"/>
@@ -42,17 +42,14 @@
                                         </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHT-Gb-gkr">
-                                        <rect key="frame" x="8" y="449.5" width="343" height="30"/>
+                                        <rect key="frame" x="142.5" y="434.5" width="74" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="Process"/>
                                         <connections>
                                             <action selector="processImageTapped:" destination="QNI-JH-Nby" eventType="touchUpInside" id="SQz-tI-eQb"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fHT-Gb-gkr" secondAttribute="trailing" constant="8" id="J0Y-R6-RLb"/>
-                                    <constraint firstItem="fHT-Gb-gkr" firstAttribute="leading" secondItem="L3I-XK-Dir" secondAttribute="leading" constant="8" id="pwc-rj-knc"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,8 +59,10 @@
                             <constraint firstAttribute="trailing" secondItem="L3I-XK-Dir" secondAttribute="trailing" constant="8" id="x3m-YQ-l44"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Receipt" id="m1a-Co-TGL"/>
                     <connections>
                         <outlet property="photoImageView" destination="tKd-uC-qpe" id="1ud-Tb-Tkw"/>
+                        <segue destination="vlh-SE-XyV" kind="show" identifier="processSegue" id="eaE-Da-LGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFu-dI-Jet" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,7 +72,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-857" y="123"/>
+            <point key="canvasLocation" x="80.799999999999997" y="122.78860569715144"/>
         </scene>
         <!--Process View Controller-->
         <scene sceneID="C1I-kX-dQG">
@@ -88,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dfU-cw-XIg">
-                                <rect key="frame" x="8" y="45" width="359" height="574"/>
+                                <rect key="frame" x="8" y="89" width="359" height="574"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="300" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9GO-cd-w0t">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="359"/>
@@ -117,10 +116,31 @@
                             <constraint firstItem="dfU-cw-XIg" firstAttribute="top" secondItem="83I-L0-KDc" secondAttribute="bottom" constant="25" id="oEl-uZ-fMM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="processImageView" destination="9GO-cd-w0t" id="RbG-wy-8IL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hu7-hZ-krv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1060" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UDn-vf-E6a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ew7-Al-0PE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qPS-IK-KC8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QNI-JH-Nby" kind="relationship" relationship="rootViewController" id="dgf-g8-cXR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bv-Zk-EnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858.39999999999998" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
