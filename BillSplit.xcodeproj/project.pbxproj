@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27DCAB502910493B8C61C00E /* Pods_BillSplit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B04668E74B7AE648E89B43 /* Pods_BillSplit.framework */; };
 		A30606BB1EE616F60036FEDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606BA1EE616F60036FEDA /* AppDelegate.swift */; };
 		A30606C01EE616F60036FEDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30606BE1EE616F60036FEDA /* Main.storyboard */; };
 		A30606C21EE616F60036FEDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A30606C11EE616F60036FEDA /* Assets.xcassets */; };
 		A30606C51EE616F60036FEDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30606C31EE616F60036FEDA /* LaunchScreen.storyboard */; };
 		A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */; };
 		A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606CE1EE627F40036FEDA /* ProcessViewController.swift */; };
+		A307DADB1F0AE5C50032C19E /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A307DAD91F0ACE1C0032C19E /* libz.1.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59B04668E74B7AE648E89B43 /* Pods_BillSplit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillSplit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8588CA5CB1592BEE9AB33B48 /* Pods-BillSplit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BillSplit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BillSplit/Pods-BillSplit.debug.xcconfig"; sourceTree = "<group>"; };
+		8673C114A8A611EBE4099E0D /* Pods-BillSplit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BillSplit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BillSplit/Pods-BillSplit.release.xcconfig"; sourceTree = "<group>"; };
 		A30606B71EE616F60036FEDA /* BillSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30606BA1EE616F60036FEDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A30606BF1EE616F60036FEDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		A30606C61EE616F60036FEDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageViewController.swift; sourceTree = "<group>"; };
 		A30606CE1EE627F40036FEDA /* ProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewController.swift; sourceTree = "<group>"; };
+		A307DAD91F0ACE1C0032C19E /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A307DADB1F0AE5C50032C19E /* libz.1.dylib in Frameworks */,
+				27DCAB502910493B8C61C00E /* Pods_BillSplit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		439C3E609FBDDE7A5327C87B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A307DAD91F0ACE1C0032C19E /* libz.1.dylib */,
+				59B04668E74B7AE648E89B43 /* Pods_BillSplit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A30606AE1EE616F60036FEDA = {
 			isa = PBXGroup;
 			children = (
 				A30606B91EE616F60036FEDA /* BillSplit */,
 				A30606B81EE616F60036FEDA /* Products */,
+				439C3E609FBDDE7A5327C87B /* Frameworks */,
+				F8140F2C09B1EC9E1A97B433 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,15 @@
 			path = BillSplit;
 			sourceTree = "<group>";
 		};
+		F8140F2C09B1EC9E1A97B433 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8588CA5CB1592BEE9AB33B48 /* Pods-BillSplit.debug.xcconfig */,
+				8673C114A8A611EBE4099E0D /* Pods-BillSplit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +102,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A30606C91EE616F60036FEDA /* Build configuration list for PBXNativeTarget "BillSplit" */;
 			buildPhases = (
+				C1559C546B176C1394BFB287 /* [CP] Check Pods Manifest.lock */,
 				A30606B31EE616F60036FEDA /* Sources */,
 				A30606B41EE616F60036FEDA /* Frameworks */,
 				A30606B51EE616F60036FEDA /* Resources */,
+				23998576551E51665F676EAF /* [CP] Embed Pods Frameworks */,
+				ED142ADE29EB465785E008AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +165,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23998576551E51665F676EAF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BillSplit/Pods-BillSplit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1559C546B176C1394BFB287 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED142ADE29EB465785E008AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BillSplit/Pods-BillSplit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A30606B31EE616F60036FEDA /* Sources */ = {
@@ -265,9 +344,12 @@
 		};
 		A30606CA1EE616F60036FEDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8588CA5CB1592BEE9AB33B48 /* Pods-BillSplit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = D4K35VTUJH;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BillSplit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -279,9 +361,12 @@
 		};
 		A30606CB1EE616F60036FEDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8673C114A8A611EBE4099E0D /* Pods-BillSplit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = D4K35VTUJH;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BillSplit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
