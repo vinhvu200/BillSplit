@@ -15,12 +15,6 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -55,11 +49,12 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func processImageTapped(_ sender: UIButton) {
         
         let image = photoImageView.image
-        performSegue(withIdentifier: "processSegue", sender: image)
+        if image != #imageLiteral(resourceName: "defaultPhoto") {
+            performSegue(withIdentifier: "processSegue", sender: image)
+        }
     }
     
     // MARK: Segue
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "processSegue" {

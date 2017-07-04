@@ -89,7 +89,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dfU-cw-XIg">
                                 <rect key="frame" x="8" y="89" width="359" height="574"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="300" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9GO-cd-w0t">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="300" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9GO-cd-w0t">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="359"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9GO-cd-w0t" secondAttribute="height" multiplier="1:1" id="5Kh-X4-O1k"/>
@@ -118,6 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="processImageView" destination="9GO-cd-w0t" id="RbG-wy-8IL"/>
+                        <outlet property="processedTextView" destination="xfr-ry-q3T" id="zTI-hz-wE9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hu7-hZ-krv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "90C134E63FD1622CBE98279EA33888FD29A009CE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "90C134E63FD1622CBE98279EA33888FD29A009CE" : 9223372036854775807,
+    "28E0ACC4D8A43B4935CDAD6DE47DD40A4FBF3D6A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "33710329-3655-408C-9D0C-55CEEC2588B1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "90C134E63FD1622CBE98279EA33888FD29A009CE" : "BillSplit\/",
+    "28E0ACC4D8A43B4935CDAD6DE47DD40A4FBF3D6A" : "BillSplit\/tessdata\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BillSplit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BillSplit.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tesseract-ocr\/tessdata.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "28E0ACC4D8A43B4935CDAD6DE47DD40A4FBF3D6A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vinhvu200\/BillSplit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "90C134E63FD1622CBE98279EA33888FD29A009CE"
+    }
+  ]
+}

@@ -15,6 +15,7 @@
 		A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */; };
 		A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606CE1EE627F40036FEDA /* ProcessViewController.swift */; };
 		A307DADB1F0AE5C50032C19E /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A307DAD91F0ACE1C0032C19E /* libz.1.dylib */; };
+		A307DAE21F0AEFDB0032C19E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = A307DAE11F0AEFDB0032C19E /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageViewController.swift; sourceTree = "<group>"; };
 		A30606CE1EE627F40036FEDA /* ProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewController.swift; sourceTree = "<group>"; };
 		A307DAD91F0ACE1C0032C19E /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		A307DAE11F0AEFDB0032C19E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				A30606B91EE616F60036FEDA /* BillSplit */,
 				A30606B81EE616F60036FEDA /* Products */,
 				439C3E609FBDDE7A5327C87B /* Frameworks */,
+				A307DADC1F0AECBC0032C19E /* Supporting File */,
 				F8140F2C09B1EC9E1A97B433 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +87,14 @@
 				A30606C61EE616F60036FEDA /* Info.plist */,
 			);
 			path = BillSplit;
+			sourceTree = "<group>";
+		};
+		A307DADC1F0AECBC0032C19E /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				A307DAE11F0AEFDB0032C19E /* tessdata */,
+			);
+			name = "Supporting File";
 			sourceTree = "<group>";
 		};
 		F8140F2C09B1EC9E1A97B433 /* Pods */ = {
@@ -159,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30606C51EE616F60036FEDA /* LaunchScreen.storyboard in Resources */,
+				A307DAE21F0AEFDB0032C19E /* tessdata in Resources */,
 				A30606C21EE616F60036FEDA /* Assets.xcassets in Resources */,
 				A30606C01EE616F60036FEDA /* Main.storyboard in Resources */,
 			);
