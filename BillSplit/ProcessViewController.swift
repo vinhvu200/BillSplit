@@ -48,40 +48,49 @@ class ProcessViewController: UIViewController {
         }
     }
     
+    // Split the processed text into lines and store
+    // them into an array
+    // Afterward, remove all the ones that requires
     @IBAction func nextButtonTapped(_ sender: UIButton) {
 
+        // Place processed text into new String
         var text:String! = processedTextView.text
         
-        var test:String.Index = text.startIndex
+        // Declare range to find \n
+        var range:Range<String.Index>?
         
-        /*
-        while test != text.endIndex {
+        // Declare allLines array to store each line
+        var allLines: [String] = []
+        
+        // range attempts to find \n
+        range = text.range(of: "\n")
+        
+        // Run loop while range is still able to find \n
+        while range != nil {
             
-            if let range = text.range(of: "\n") {
-                
-                let index = text.startIndex ..< range.lowerBound
-                print("text : \(text[index])")
-                
-                let index2 = text.index(after: range.upperBound) ..< text.endIndex
-                text = text[index2]
-            }
-        }
-        */
- 
-        /*
-        if let range = text.range(of: "\n") {
+            // Get index from beginning of text to \n
+            let index = text.startIndex ..< (range?.lowerBound)!
             
-            let rangeOfString = text.startIndex ..< range.lowerBound
-            let line = text.substring(with: rangeOfString)
-            print("S : \(line)")
+            // Create the line of string with index
+            let line = text[index]
             
-            let index2 = text.index(after: range.upperBound) ..< text.endIndex
+            // Append the line
+            allLines.append(line)
             
+            // Get index for after the the \n to the end
+            let index2 = text.index(after: (range?.lowerBound)!) ..< text.endIndex
+            
+            // Update the text with the index
             text = text[index2]
-            print("text : \(text)")
             
+            // Attempts to find \n
+            range = text.range(of: "\n")
         }
-        */
+        
+        // Remove all whitespace form allLines array
+        allLines = allLines.filter{ !$0.trimmingCharacters(in: .whitespaces).isEmpty}
+        
+        print(allLines)
         
     }
 }
