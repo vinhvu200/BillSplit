@@ -12,11 +12,14 @@ import TesseractOCR
 class ProcessViewController: UIViewController {
 
     @IBOutlet weak var processImageView: UIImageView!
-    var passedImage: UIImage?
     @IBOutlet weak var processedTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var passedImage: UIImage?
+    // Declare allLines array to store each line
+    var allLines: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +33,12 @@ class ProcessViewController: UIViewController {
         if let tesseract = G8Tesseract(language: "eng") {
             
             tesseract.pageSegmentationMode = .auto
+            //tesseract.charWhitelist = "abcdefghijklmnopqrstuvwxyz0123456789()-%/:."
             tesseract.maximumRecognitionTime = 60.0
             tesseract.image = image.g8_blackAndWhite()
             tesseract.recognize()
             processedTextView.text = tesseract.recognizedText
+            
             processedTextView.sizeToFit()
             processedTextView.layoutIfNeeded()
             
@@ -58,9 +63,6 @@ class ProcessViewController: UIViewController {
         
         // Declare range to find \n
         var range:Range<String.Index>?
-        
-        // Declare allLines array to store each line
-        var allLines: [String] = []
         
         // range attempts to find \n
         range = text.range(of: "\n")
@@ -92,5 +94,19 @@ class ProcessViewController: UIViewController {
         
         print(allLines)
         
+        //performSegue(withIdentifier: "priceSegue", sender: )
+        performSegue(withIdentifier: "priceSegue", sender: nil)
+    }
+    
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "priceSegue" {
+            
+            if let priceVC = segue.destination as? PriceTableViewController {
+                
+                priceVC.allLines = allLines
+            }
+        }
     }
 }
