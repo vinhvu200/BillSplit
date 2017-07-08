@@ -58,6 +58,9 @@ class ProcessViewController: UIViewController {
     // Afterward, remove all the ones that requires
     @IBAction func nextButtonTapped(_ sender: UIButton) {
 
+        // Remove all element first before filling it up
+        allLines.removeAll()
+        
         // Place processed text into new String
         var text:String! = processedTextView.text
         

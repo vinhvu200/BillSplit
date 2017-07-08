@@ -165,45 +165,50 @@
         <scene sceneID="f4h-uU-yk5">
             <objects>
                 <tableViewController id="axi-oc-8Tp" customClass="PriceTableViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" id="h3f-B6-pyK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" id="h3f-B6-pyK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceCell" rowHeight="113" id="HEK-YC-nMd" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="113"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceCell" rowHeight="103" id="HEK-YC-nMd" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="103"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HEK-YC-nMd" id="QE0-Pa-RY1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="102.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bof-ia-5Xc">
-                                            <rect key="frame" x="8" y="8" width="262.5" height="96.5"/>
+                                            <rect key="frame" x="8" y="8" width="262.5" height="86.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-8F-TBa">
-                                            <rect key="frame" x="278.5" y="8" width="88.5" height="96.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAX-jZ-7Za">
+                                            <rect key="frame" x="278.5" y="8" width="88.5" height="86.5"/>
+                                            <color key="backgroundColor" red="0.059287679629999999" green="0.81167017490000004" blue="0.083251154600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="Price">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="editPrice:" destination="HEK-YC-nMd" eventType="touchUpInside" id="nde-QY-vac"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="SAX-jZ-7Za" firstAttribute="top" secondItem="QE0-Pa-RY1" secondAttribute="top" constant="8" id="8i2-za-gOQ"/>
                                         <constraint firstItem="bof-ia-5Xc" firstAttribute="top" secondItem="QE0-Pa-RY1" secondAttribute="top" constant="8" id="Fzv-zi-Sci"/>
-                                        <constraint firstAttribute="trailing" secondItem="x4Y-8F-TBa" secondAttribute="trailing" constant="8" id="MRM-tx-Kru"/>
-                                        <constraint firstItem="x4Y-8F-TBa" firstAttribute="top" secondItem="QE0-Pa-RY1" secondAttribute="top" constant="8" id="PGw-Wh-9Vc"/>
                                         <constraint firstItem="bof-ia-5Xc" firstAttribute="width" secondItem="QE0-Pa-RY1" secondAttribute="width" multiplier="0.7" id="S2B-LN-UJn"/>
-                                        <constraint firstItem="x4Y-8F-TBa" firstAttribute="leading" secondItem="bof-ia-5Xc" secondAttribute="trailing" constant="8" id="XpF-wb-SUQ"/>
                                         <constraint firstAttribute="bottom" secondItem="bof-ia-5Xc" secondAttribute="bottom" constant="8" id="bmn-6V-P4D"/>
                                         <constraint firstItem="bof-ia-5Xc" firstAttribute="leading" secondItem="QE0-Pa-RY1" secondAttribute="leading" constant="8" id="g73-Km-e4a"/>
-                                        <constraint firstAttribute="bottom" secondItem="x4Y-8F-TBa" secondAttribute="bottom" constant="8" id="ku2-7e-w4g"/>
+                                        <constraint firstAttribute="bottom" secondItem="SAX-jZ-7Za" secondAttribute="bottom" constant="8" id="iT8-ve-Abh"/>
+                                        <constraint firstItem="SAX-jZ-7Za" firstAttribute="leading" secondItem="bof-ia-5Xc" secondAttribute="trailing" constant="8" id="tmH-WC-vMH"/>
+                                        <constraint firstAttribute="trailing" secondItem="SAX-jZ-7Za" secondAttribute="trailing" constant="8" id="w2m-GG-p6M"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="name" destination="bof-ia-5Xc" id="Q5P-oj-Ehc"/>
-                                    <outlet property="price" destination="x4Y-8F-TBa" id="sq0-Al-s8b"/>
+                                    <outlet property="price" destination="SAX-jZ-7Za" id="JLH-Wz-caf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
