@@ -18,6 +18,7 @@
 		A307DAE21F0AEFDB0032C19E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = A307DAE11F0AEFDB0032C19E /* tessdata */; };
 		A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */; };
 		A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */; };
+		A307DAEB1F14284B0032C19E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAEA1F14284B0032C19E /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A307DAE11F0AEFDB0032C19E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
 		A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		A307DAEA1F14284B0032C19E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				A30606BA1EE616F60036FEDA /* AppDelegate.swift */,
 				A307DAE61F1055090032C19E /* ViewController */,
 				A307DAE51F1055020032C19E /* View */,
+				A307DAE91F1428280032C19E /* Model */,
 				A30606C11EE616F60036FEDA /* Assets.xcassets */,
 				A30606C31EE616F60036FEDA /* LaunchScreen.storyboard */,
 				A30606C61EE616F60036FEDA /* Info.plist */,
@@ -117,6 +120,14 @@
 				A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A307DAE91F1428280032C19E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A307DAEA1F14284B0032C19E /* Item.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		F8140F2C09B1EC9E1A97B433 /* Pods */ = {
@@ -257,6 +268,7 @@
 				A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */,
 				A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */,
 				A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */,
+				A307DAEB1F14284B0032C19E /* Item.swift in Sources */,
 				A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

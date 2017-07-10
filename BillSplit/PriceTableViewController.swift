@@ -10,7 +10,7 @@ import UIKit
 
 class PriceTableViewController: UITableViewController {
 
-    var allLines: [String] = []
+    var items: [Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +38,18 @@ class PriceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return allLines.count
+        return items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! ItemTableViewCell
-
-        cell.name.text = allLines[indexPath.row]
+        
+        cell.name.text = items[indexPath.row].name
+        cell.price.setTitle("$\(items[indexPath.row].price)", for: .normal)
+        cell.price.tag = indexPath.row
+        cell.price.addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
+        cell.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        
         return cell
     }
     
@@ -55,10 +60,40 @@ class PriceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             
-            allLines.remove(at: indexPath.row)
+            items.remove(at: indexPath.row)
             tableView.reloadData()
-            // handle delete (by removing the data from your array and updating the tableview)
         }
+    }
+    
+    func priceButtonTapped(sender: UIButton!) {
+        
+        // Create the alert controller.
+        let alert = UIAlertController(title: "Enter Price", message: nil, preferredStyle: .alert)
+        
+        // Add the text field
+        alert.addTextField(configurationHandler: nil)
+        
+        // Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            
+            if !(textField?.text?.isEmpty)! {
+                self.items[sender.tag].price = Float((textField?.text)!)!
+                self.tableView.reloadData()
+            }
+        }))
+        
+        // Add cancel button
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+        
+        // Present the alert
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteButtonTapped(sender: UIButton!) {
+        
+        items.remove(at: sender.tag)
+        tableView.reloadData()
     }
     
     /*

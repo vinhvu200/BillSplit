@@ -170,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceCell" rowHeight="103" id="HEK-YC-nMd" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PriceCell" rowHeight="103" id="HEK-YC-nMd" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="103"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HEK-YC-nMd" id="QE0-Pa-RY1">
@@ -178,37 +178,54 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bof-ia-5Xc">
-                                            <rect key="frame" x="8" y="8" width="262.5" height="86.5"/>
+                                            <rect key="frame" x="8" y="8" width="206.5" height="86.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAX-jZ-7Za">
-                                            <rect key="frame" x="278.5" y="8" width="88.5" height="86.5"/>
-                                            <color key="backgroundColor" red="0.059287679629999999" green="0.81167017490000004" blue="0.083251154600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" title="Price">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="editPrice:" destination="HEK-YC-nMd" eventType="touchUpInside" id="nde-QY-vac"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cyZ-ey-J61">
+                                            <rect key="frame" x="222.5" y="8" width="144.5" height="86.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAX-jZ-7Za">
+                                                    <rect key="frame" x="0.0" y="8" width="67" height="70.5"/>
+                                                    <color key="backgroundColor" red="0.059287679629999999" green="0.81167017490000004" blue="0.083251154600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Price">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqp-tb-gOl">
+                                                    <rect key="frame" x="77" y="8" width="67.5" height="70.5"/>
+                                                    <color key="backgroundColor" red="0.97599579015544047" green="0.032926049003844479" blue="0.044341320725235119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Delete">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Iqp-tb-gOl" firstAttribute="top" secondItem="cyZ-ey-J61" secondAttribute="top" constant="8" id="AV9-Es-ghY"/>
+                                                <constraint firstItem="SAX-jZ-7Za" firstAttribute="top" secondItem="cyZ-ey-J61" secondAttribute="top" constant="8" id="Ghc-4m-0k4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Iqp-tb-gOl" secondAttribute="bottom" constant="8" id="Iu5-o8-6IB"/>
+                                                <constraint firstItem="Iqp-tb-gOl" firstAttribute="width" secondItem="SAX-jZ-7Za" secondAttribute="width" id="bHD-Q0-bvT"/>
+                                                <constraint firstAttribute="bottom" secondItem="SAX-jZ-7Za" secondAttribute="bottom" constant="8" id="hek-S8-BbA"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SAX-jZ-7Za" firstAttribute="top" secondItem="QE0-Pa-RY1" secondAttribute="top" constant="8" id="8i2-za-gOQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="cyZ-ey-J61" secondAttribute="bottom" constant="8" id="9ud-o3-uNI"/>
+                                        <constraint firstAttribute="trailing" secondItem="cyZ-ey-J61" secondAttribute="trailing" constant="8" id="ERZ-R7-JN7"/>
                                         <constraint firstItem="bof-ia-5Xc" firstAttribute="top" secondItem="QE0-Pa-RY1" secondAttribute="top" constant="8" id="Fzv-zi-Sci"/>
-                                        <constraint firstItem="bof-ia-5Xc" firstAttribute="width" secondItem="QE0-Pa-RY1" secondAttribute="width" multiplier="0.7" id="S2B-LN-UJn"/>
+                                        <constraint firstItem="bof-ia-5Xc" firstAttribute="width" secondItem="QE0-Pa-RY1" secondAttribute="width" multiplier="0.55" id="S2B-LN-UJn"/>
+                                        <constraint firstItem="cyZ-ey-J61" firstAttribute="top" secondItem="QE0-Pa-RY1" secondAttribute="top" constant="8" id="blG-2O-UXd"/>
                                         <constraint firstAttribute="bottom" secondItem="bof-ia-5Xc" secondAttribute="bottom" constant="8" id="bmn-6V-P4D"/>
                                         <constraint firstItem="bof-ia-5Xc" firstAttribute="leading" secondItem="QE0-Pa-RY1" secondAttribute="leading" constant="8" id="g73-Km-e4a"/>
-                                        <constraint firstAttribute="bottom" secondItem="SAX-jZ-7Za" secondAttribute="bottom" constant="8" id="iT8-ve-Abh"/>
-                                        <constraint firstItem="SAX-jZ-7Za" firstAttribute="leading" secondItem="bof-ia-5Xc" secondAttribute="trailing" constant="8" id="tmH-WC-vMH"/>
-                                        <constraint firstAttribute="trailing" secondItem="SAX-jZ-7Za" secondAttribute="trailing" constant="8" id="w2m-GG-p6M"/>
+                                        <constraint firstItem="cyZ-ey-J61" firstAttribute="leading" secondItem="bof-ia-5Xc" secondAttribute="trailing" constant="8" id="sXC-yK-ILD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="deleteButton" destination="Iqp-tb-gOl" id="FFV-Sy-NBJ"/>
                                     <outlet property="name" destination="bof-ia-5Xc" id="Q5P-oj-Ehc"/>
-                                    <outlet property="price" destination="SAX-jZ-7Za" id="JLH-Wz-caf"/>
+                                    <outlet property="price" destination="SAX-jZ-7Za" id="2kw-UG-ZWo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

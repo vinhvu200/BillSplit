@@ -95,8 +95,6 @@ class ProcessViewController: UIViewController {
         // Remove all whitespace form allLines array
         allLines = allLines.filter{ !$0.trimmingCharacters(in: .whitespaces).isEmpty}
         
-        print(allLines)
-        
         //performSegue(withIdentifier: "priceSegue", sender: )
         performSegue(withIdentifier: "priceSegue", sender: nil)
     }
@@ -104,11 +102,18 @@ class ProcessViewController: UIViewController {
     // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        var items: [Item] = []
+        
+        for line in allLines {
+            let item = Item(name: line, price: 0)
+            items.append(item)
+        }
+        
         if segue.identifier == "priceSegue" {
             
             if let priceVC = segue.destination as? PriceTableViewController {
                 
-                priceVC.allLines = allLines
+                priceVC.items = items
             }
         }
     }
