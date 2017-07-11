@@ -236,13 +236,87 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Prices" id="JHF-1x-ovv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="NQb-dU-xAk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="NQb-dU-xAk">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="axi-oc-8Tp" id="ycT-6C-LPg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="qaa-B3-WKz" kind="show" identifier="assignSegue" id="MXj-B4-KBe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1D-2q-URF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="182.60869565217394"/>
+        </scene>
+        <!--Assign Item Table View Controller-->
+        <scene sceneID="hnn-OZ-XEO">
+            <objects>
+                <tableViewController id="qaa-B3-WKz" customClass="AssignItemTableViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="nQd-fJ-RSb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="kJL-gF-P6B">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-93-our">
+                                    <rect key="frame" x="8" y="8" width="256" height="84"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NsH-A2-9lZ">
+                                    <rect key="frame" x="272" y="30" width="95" height="40"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add" translatesAutoresizingMaskIntoConstraints="NO" id="Ye9-jo-F8R">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Ye9-jo-F8R" secondAttribute="height" multiplier="1:1" id="na9-DA-jjX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="People" translatesAutoresizingMaskIntoConstraints="NO" id="06a-L7-97q">
+                                            <rect key="frame" x="55" y="0.0" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="06a-L7-97q" secondAttribute="height" multiplier="1:1" id="d6y-5G-Zeo"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="NsH-A2-9lZ" firstAttribute="centerY" secondItem="kJL-gF-P6B" secondAttribute="centerY" id="1XK-QU-fFk"/>
+                                <constraint firstItem="NsH-A2-9lZ" firstAttribute="height" secondItem="kJL-gF-P6B" secondAttribute="height" multiplier="0.4" id="HmG-Eh-5ku"/>
+                                <constraint firstAttribute="trailing" secondItem="NsH-A2-9lZ" secondAttribute="trailing" constant="8" id="Rmj-1p-6f8"/>
+                                <constraint firstItem="NsH-A2-9lZ" firstAttribute="leading" secondItem="vWq-93-our" secondAttribute="trailing" constant="8" id="gwO-at-b57"/>
+                                <constraint firstItem="vWq-93-our" firstAttribute="leading" secondItem="kJL-gF-P6B" secondAttribute="leading" constant="8" id="iUX-d2-kpw"/>
+                                <constraint firstAttribute="bottom" secondItem="vWq-93-our" secondAttribute="bottom" constant="8" id="mbP-AX-eTo"/>
+                                <constraint firstItem="vWq-93-our" firstAttribute="top" secondItem="kJL-gF-P6B" secondAttribute="top" constant="8" id="qsb-lm-JGX"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssignCell" rowHeight="100" id="U09-2x-RVz" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="128" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U09-2x-RVz" id="EP2-ee-ec2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qaa-B3-WKz" id="xPw-ow-n59"/>
+                            <outlet property="delegate" destination="qaa-B3-WKz" id="44Y-3a-oIq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CwP-yY-mBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3040.8000000000002" y="182.60869565217394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UDn-vf-E6a">
@@ -264,6 +338,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add" width="24" height="24"/>
+        <image name="People" width="24" height="24"/>
         <image name="defaultPhoto" width="540" height="540"/>
     </resources>
 </document>

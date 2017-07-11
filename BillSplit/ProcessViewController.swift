@@ -95,7 +95,6 @@ class ProcessViewController: UIViewController {
         // Remove all whitespace form allLines array
         allLines = allLines.filter{ !$0.trimmingCharacters(in: .whitespaces).isEmpty}
         
-        //performSegue(withIdentifier: "priceSegue", sender: )
         performSegue(withIdentifier: "priceSegue", sender: nil)
     }
     

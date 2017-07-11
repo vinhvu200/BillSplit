@@ -71,13 +71,12 @@ class PriceTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Enter Price", message: nil, preferredStyle: .alert)
         
         // Add the text field
-        // Add the text field
         alert.addTextField { (textField) in
             textField.keyboardType = .decimalPad
             //textField.text = ""
         }
         
-        // Grab the value from the text field, and print it when the user clicks OK.
+        // Grab the value from the text field,
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             
@@ -105,12 +104,8 @@ class PriceTableViewController: UITableViewController {
         // Create the alert controller.
         let alert = UIAlertController(title: "Enter Item Name", message: nil, preferredStyle: .alert)
         
-        // Add the text field
-        alert.addTextField { (textField) in
-            //textField.keyboardType = .decimalPad
-            textField.text = ""
-        }
-
+        // Add text field
+        alert.addTextField(configurationHandler: nil)
         
         // Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
@@ -127,8 +122,22 @@ class PriceTableViewController: UITableViewController {
         
         // Present the alert
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
-        //tableView.reloadData()
+        performSegue(withIdentifier: "assignSegue", sender: nil)
+    }
+    
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "assignSegue" {
+            if let assignVC = segue.destination as? AssignItemTableViewController {
+                assignVC.items = items
+                print("AssignVC.count: \(assignVC.items.count)")
+            }
+        }
     }
     
     /*

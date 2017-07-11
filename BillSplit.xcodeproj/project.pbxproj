@@ -19,6 +19,7 @@
 		A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */; };
 		A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */; };
 		A307DAEB1F14284B0032C19E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAEA1F14284B0032C19E /* Item.swift */; };
+		A307DAEF1F14869B0032C19E /* AssignItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
 		A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		A307DAEA1F14284B0032C19E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */,
 				A30606CE1EE627F40036FEDA /* ProcessViewController.swift */,
 				A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */,
+				A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */,
 				A307DAEB1F14284B0032C19E /* Item.swift in Sources */,
 				A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */,
+				A307DAEF1F14869B0032C19E /* AssignItemTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
