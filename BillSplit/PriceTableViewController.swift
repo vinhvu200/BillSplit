@@ -44,9 +44,17 @@ class PriceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! ItemTableViewCell
         
+        cell.name.tag = indexPath.row
+        cell.price.tag = indexPath.row
+        cell.deleteButton.tag = indexPath.row
+        
         cell.name.text = items[indexPath.row].name
         cell.price.setTitle("$\(items[indexPath.row].price)", for: .normal)
-        cell.price.tag = indexPath.row
+        
+        let nameChangeGesture = UITapGestureRecognizer(target: self, action: #selector(nameChange(_:)))
+        nameChangeGesture.numberOfTapsRequired = 2
+        
+        cell.name.addGestureRecognizer(nameChangeGesture)
         cell.price.addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
         cell.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         
@@ -57,21 +65,17 @@ class PriceTableViewController: UITableViewController {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            
-            items.remove(at: indexPath.row)
-            tableView.reloadData()
-        }
-    }
-    
     func priceButtonTapped(sender: UIButton!) {
         
         // Create the alert controller.
         let alert = UIAlertController(title: "Enter Price", message: nil, preferredStyle: .alert)
         
         // Add the text field
-        alert.addTextField(configurationHandler: nil)
+        // Add the text field
+        alert.addTextField { (textField) in
+            textField.keyboardType = .decimalPad
+            //textField.text = ""
+        }
         
         // Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
@@ -94,6 +98,37 @@ class PriceTableViewController: UITableViewController {
         
         items.remove(at: sender.tag)
         tableView.reloadData()
+    }
+    
+    func nameChange(_ sender: UITapGestureRecognizer) {
+        
+        // Create the alert controller.
+        let alert = UIAlertController(title: "Enter Item Name", message: nil, preferredStyle: .alert)
+        
+        // Add the text field
+        alert.addTextField { (textField) in
+            //textField.keyboardType = .decimalPad
+            textField.text = ""
+        }
+
+        
+        // Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            
+            if !(textField?.text?.isEmpty)! {
+                self.items[(sender.view?.tag)!].name = (textField?.text)!
+                self.tableView.reloadData()
+            }
+        }))
+        
+        // Add cancel button
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+        
+        // Present the alert
+        present(alert, animated: true, completion: nil)
+        
+        //tableView.reloadData()
     }
     
     /*

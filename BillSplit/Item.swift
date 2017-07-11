@@ -10,6 +10,6 @@ import Foundation
 
 struct Item {
 
-    let name: String
+    var name: String
     var price: Float
 }
