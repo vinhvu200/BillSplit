@@ -10,9 +10,8 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var price: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet var name: [UILabel]!
+    @IBOutlet var price: [UIButton]!
+    @IBOutlet var deleteButton: [UIButton]!
     
 }

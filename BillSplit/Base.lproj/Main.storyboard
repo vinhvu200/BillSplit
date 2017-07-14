@@ -223,9 +223,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="deleteButton" destination="Iqp-tb-gOl" id="FFV-Sy-NBJ"/>
-                                    <outlet property="name" destination="BjY-ef-w0S" id="ywj-5b-I5I"/>
-                                    <outlet property="price" destination="SAX-jZ-7Za" id="2kw-UG-ZWo"/>
+                                    <outletCollection property="name" destination="BjY-ef-w0S" collectionClass="NSMutableArray" id="sZ7-c5-C95"/>
+                                    <outletCollection property="price" destination="SAX-jZ-7Za" collectionClass="NSMutableArray" id="iQl-9h-SNa"/>
+                                    <outletCollection property="deleteButton" destination="Iqp-tb-gOl" collectionClass="NSMutableArray" id="Ekg-0q-RCg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -263,9 +263,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-93-our">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No User Selected" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-93-our">
                                     <rect key="frame" x="8" y="8" width="256" height="84"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -299,13 +299,55 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssignCell" rowHeight="100" id="U09-2x-RVz" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AssignCell" rowHeight="100" id="U09-2x-RVz" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U09-2x-RVz" id="EP2-ee-ec2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdp-ze-rnK">
+                                            <rect key="frame" x="8" y="8" width="244" height="83.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0RA-W5-tsy">
+                                            <rect key="frame" x="260" y="8" width="107" height="83.5"/>
+                                            <subviews>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN7-Jd-wke">
+                                                    <rect key="frame" x="36" y="0.0" width="35" height="29"/>
+                                                    <state key="normal" title="Price">
+                                                        <color key="titleColor" red="0.035806404880000003" green="0.4942317034" blue="0.05581852633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="T6F-2c-dyt">
+                                                    <rect key="frame" x="26.5" y="29" width="54" height="54.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="T6F-2c-dyt" secondAttribute="height" multiplier="1:1" id="ypr-db-Rc8"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qN7-Jd-wke" firstAttribute="height" secondItem="0RA-W5-tsy" secondAttribute="height" multiplier="0.35" id="ybX-zi-Y9B"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0RA-W5-tsy" firstAttribute="top" secondItem="EP2-ee-ec2" secondAttribute="top" constant="8" id="6ZS-uk-32O"/>
+                                        <constraint firstItem="0RA-W5-tsy" firstAttribute="leading" secondItem="Sdp-ze-rnK" secondAttribute="trailing" constant="8" id="Fya-DD-RlG"/>
+                                        <constraint firstItem="Sdp-ze-rnK" firstAttribute="leading" secondItem="EP2-ee-ec2" secondAttribute="leading" constant="8" id="IHq-iN-dFy"/>
+                                        <constraint firstItem="Sdp-ze-rnK" firstAttribute="top" secondItem="EP2-ee-ec2" secondAttribute="top" constant="8" id="YKK-fT-4OI"/>
+                                        <constraint firstItem="Sdp-ze-rnK" firstAttribute="width" secondItem="EP2-ee-ec2" secondAttribute="width" multiplier="0.65" id="g8E-PT-c2U"/>
+                                        <constraint firstAttribute="bottom" secondItem="0RA-W5-tsy" secondAttribute="bottom" constant="8" id="xeh-sw-aAT"/>
+                                        <constraint firstAttribute="trailing" secondItem="0RA-W5-tsy" secondAttribute="trailing" constant="8" id="xna-wl-xdV"/>
+                                        <constraint firstAttribute="bottom" secondItem="Sdp-ze-rnK" secondAttribute="bottom" constant="8" id="y5s-ks-Imw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outletCollection property="name" destination="Sdp-ze-rnK" collectionClass="NSMutableArray" id="CVw-kq-5qw"/>
+                                    <outletCollection property="price" destination="qN7-Jd-wke" collectionClass="NSMutableArray" id="S3p-jN-5Lt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -340,6 +382,7 @@
     <resources>
         <image name="Add" width="24" height="24"/>
         <image name="People" width="24" height="24"/>
+        <image name="Person" width="24" height="24"/>
         <image name="defaultPhoto" width="540" height="540"/>
     </resources>
 </document>

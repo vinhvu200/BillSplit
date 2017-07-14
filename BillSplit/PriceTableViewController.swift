@@ -44,19 +44,19 @@ class PriceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! ItemTableViewCell
         
-        cell.name.tag = indexPath.row
-        cell.price.tag = indexPath.row
-        cell.deleteButton.tag = indexPath.row
+        cell.name[0].tag = indexPath.row
+        cell.price[0].tag = indexPath.row
+        cell.deleteButton[0].tag = indexPath.row
         
-        cell.name.text = items[indexPath.row].name
-        cell.price.setTitle("$\(items[indexPath.row].price)", for: .normal)
+        cell.name[0].text = items[indexPath.row].name
+        cell.price[0].setTitle("$\(items[indexPath.row].price)", for: .normal)
         
         let nameChangeGesture = UITapGestureRecognizer(target: self, action: #selector(nameChange(_:)))
         nameChangeGesture.numberOfTapsRequired = 2
         
-        cell.name.addGestureRecognizer(nameChangeGesture)
-        cell.price.addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
-        cell.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        cell.name[0].addGestureRecognizer(nameChangeGesture)
+        cell.price[0].addTarget(self, action: #selector(priceButtonTapped), for: .touchUpInside)
+        cell.deleteButton[0].addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         
         return cell
     }

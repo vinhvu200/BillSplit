@@ -50,8 +50,8 @@ class AssignItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssignCell", for: indexPath) as! ItemTableViewCell
 
-        //cell.name.text = items[indexPath.row].name
-        //cell.price.setTitle("$\(items[indexPath.row].price)", for: .normal)
+        cell.name[0].text = items[indexPath.row].name
+        cell.price[0].setTitle("$\(items[indexPath.row].price)", for: .normal)
 
         return cell
     }
