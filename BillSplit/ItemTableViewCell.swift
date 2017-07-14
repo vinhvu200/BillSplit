@@ -13,5 +13,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var name: [UILabel]!
     @IBOutlet var price: [UIButton]!
     @IBOutlet var deleteButton: [UIButton]!
+    @IBOutlet weak var people: UIImageView!
     
 }

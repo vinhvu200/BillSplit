@@ -11,31 +11,29 @@ import UIKit
 class AssignItemTableViewController: UITableViewController {
 
     var items: [Item] = []
+    @IBOutlet weak var addPersonImage: UIImageView!
+    @IBOutlet weak var showPeopleImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Item.count: \(items.count)")
         
-        for x in items {
-            print("name : \(x.name)")
-            print("price : \(x.price)")
-        }
+        let addPersonGesture = UITapGestureRecognizer(target: self, action: #selector(addPersonImageTapped(_:)))
+        addPersonImage.addGestureRecognizer(addPersonGesture)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let showPeopleGesture = UITapGestureRecognizer(target: self, action: #selector(showPeopleImageTapped(_:)))
+        showPeopleImage.addGestureRecognizer(showPeopleGesture)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func addPersonImageTapped(_ sender: UITapGestureRecognizer) {
+        
+        print("hello world")
+    }
+    
+    func showPeopleImageTapped(_ sender: UITapGestureRecognizer) {
+        print("hello world 2")
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -52,54 +50,20 @@ class AssignItemTableViewController: UITableViewController {
 
         cell.name[0].text = items[indexPath.row].name
         cell.price[0].setTitle("$\(items[indexPath.row].price)", for: .normal)
+        
+        let peopleGesture = UITapGestureRecognizer(target: self, action: #selector(peopleImageTapped(_:)))
+        cell.people.addGestureRecognizer(peopleGesture)
 
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func peopleImageTapped(_ sender: UITapGestureRecognizer) {
+        
+        print("hello world 3")
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    // MARK: Action
+    
+    
+    
 }

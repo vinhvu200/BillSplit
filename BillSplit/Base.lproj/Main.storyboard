@@ -272,13 +272,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NsH-A2-9lZ">
                                     <rect key="frame" x="272" y="30" width="95" height="40"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add" translatesAutoresizingMaskIntoConstraints="NO" id="Ye9-jo-F8R">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-ih-zUo">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Ye9-jo-F8R" secondAttribute="height" multiplier="1:1" id="na9-DA-jjX"/>
+                                                <constraint firstAttribute="width" secondItem="6xb-ih-zUo" secondAttribute="height" multiplier="1:1" id="quo-ZB-Kp5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="People" translatesAutoresizingMaskIntoConstraints="NO" id="06a-L7-97q">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="People" translatesAutoresizingMaskIntoConstraints="NO" id="06a-L7-97q">
                                             <rect key="frame" x="55" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="06a-L7-97q" secondAttribute="height" multiplier="1:1" id="d6y-5G-Zeo"/>
@@ -321,7 +321,7 @@
                                                         <color key="titleColor" red="0.035806404880000003" green="0.4942317034" blue="0.05581852633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="T6F-2c-dyt">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="T6F-2c-dyt">
                                                     <rect key="frame" x="26.5" y="29" width="54" height="54.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="T6F-2c-dyt" secondAttribute="height" multiplier="1:1" id="ypr-db-Rc8"/>
@@ -345,6 +345,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="people" destination="T6F-2c-dyt" id="Fwp-X2-I3a"/>
                                     <outletCollection property="name" destination="Sdp-ze-rnK" collectionClass="NSMutableArray" id="CVw-kq-5qw"/>
                                     <outletCollection property="price" destination="qN7-Jd-wke" collectionClass="NSMutableArray" id="S3p-jN-5Lt"/>
                                 </connections>
@@ -355,6 +356,10 @@
                             <outlet property="delegate" destination="qaa-B3-WKz" id="44Y-3a-oIq"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addPersonImage" destination="6xb-ih-zUo" id="4hh-Lt-iQb"/>
+                        <outlet property="showPeopleImage" destination="06a-L7-97q" id="3oB-5I-n1G"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CwP-yY-mBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
