@@ -251,6 +251,64 @@
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="182.60869565217394"/>
         </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="Mg6-sn-OJv">
+            <objects>
+                <viewController storyboardIdentifier="popUp" id="SeH-qd-DQN" customClass="PopUpViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BZn-ri-bn8"/>
+                        <viewControllerLayoutGuide type="bottom" id="lEX-8Q-NRb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PS8-XX-8nN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exG-eD-MAq">
+                                <rect key="frame" x="93.5" y="166.5" width="187.5" height="333.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" id="CqI-MK-t39">
+                                        <rect key="frame" x="0.0" y="28" width="187.5" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CqI-MK-t39" id="mbk-Ph-V6B">
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E19-cn-3Au">
+                                                    <rect key="frame" x="8" y="11" width="45" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auq-aJ-SdA">
+                                <rect key="frame" x="8" y="145.5" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.26034303930000002" green="0.37576967290000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="exG-eD-MAq" firstAttribute="top" secondItem="auq-aJ-SdA" secondAttribute="bottom" id="5I0-zn-NV9"/>
+                            <constraint firstAttribute="trailing" secondItem="auq-aJ-SdA" secondAttribute="trailing" constant="8" id="Gte-50-ZBv"/>
+                            <constraint firstItem="auq-aJ-SdA" firstAttribute="leading" secondItem="PS8-XX-8nN" secondAttribute="leading" constant="8" id="Qxh-UM-4uz"/>
+                            <constraint firstItem="exG-eD-MAq" firstAttribute="centerY" secondItem="PS8-XX-8nN" secondAttribute="centerY" id="RSQ-5a-6JO"/>
+                            <constraint firstItem="exG-eD-MAq" firstAttribute="width" secondItem="PS8-XX-8nN" secondAttribute="width" multiplier="0.5" id="cPt-pE-88T"/>
+                            <constraint firstItem="exG-eD-MAq" firstAttribute="centerX" secondItem="PS8-XX-8nN" secondAttribute="centerX" id="o9i-ZI-vRV"/>
+                            <constraint firstItem="exG-eD-MAq" firstAttribute="height" secondItem="PS8-XX-8nN" secondAttribute="height" multiplier="0.5" id="q2P-Ik-4kW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t0z-Zr-yX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3040.8000000000002" y="-599.55022488755628"/>
+        </scene>
         <!--Assign Item Table View Controller-->
         <scene sceneID="hnn-OZ-XEO">
             <objects>
@@ -358,6 +416,7 @@
                     </tableView>
                     <connections>
                         <outlet property="addPersonImage" destination="6xb-ih-zUo" id="4hh-Lt-iQb"/>
+                        <outlet property="currentPersonLabel" destination="vWq-93-our" id="aEg-8O-CJ5"/>
                         <outlet property="showPeopleImage" destination="06a-L7-97q" id="3oB-5I-n1G"/>
                     </connections>
                 </tableViewController>
