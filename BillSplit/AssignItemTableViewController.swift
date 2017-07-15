@@ -58,43 +58,13 @@ class AssignItemTableViewController: UITableViewController {
     
     func showPeopleImageTapped(_ sender: UITapGestureRecognizer) {
         
-        // let PopUpVC = PopUpViewController(nibName: "PopUpViewController", bundle: nil)
-        
-        /*
-        let myAlert = storyboard.instantiateViewControllerWithIdentifier("alert")
-        myAlert.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        myAlert.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        self.presentViewController(myAlert, animated: true, completion: nil)
-        */
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let popUp = storyboard.instantiateViewController(withIdentifier: "popUp")
-        popUp.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        popUp.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(popUp, animated: true, completion: nil)
-        
-        /*
-        let alert = UIAlertController(title: "People", message: nil, preferredStyle: .alert)
-        
-        for person in people {
-            
-            let alertAction = UIAlertAction(title: person.name, style: .default, handler: { (UIAlertAction) in
-            
-                self.currentPersonLabel.text = person.name
-                self.currentPerson = person
-            })
-            
-            alertAction.setValue(UIColor.darkText, forKey: "titleTextColor")
-            
-            alert.addAction(alertAction)
-            //alert.addAction(UIAlertAction(title: person.name, style: .default))
-        }
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        
-        present(alert, animated: true, completion: nil)
-        */
-        
+        let popUpVC = storyboard.instantiateViewController(withIdentifier: "popUp") as! PopUpViewController
+        popUpVC.people = people
+        popUpVC.delegate = self
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        popUpVC.modalTransitionStyle = .crossDissolve
+        self.present(popUpVC, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -125,8 +95,13 @@ class AssignItemTableViewController: UITableViewController {
         print("hello world 3")
     }
     
-    // MARK: Action
+}
+
+extension AssignItemTableViewController: PopUpViewControllerDelegate {
     
-    
-    
+    func getSelectedUser(person: Person) {
+        
+        currentPerson = person
+        currentPersonLabel.text = currentPerson?.name
+    }
 }

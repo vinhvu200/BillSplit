@@ -22,6 +22,7 @@
 		A307DAEF1F14869B0032C19E /* AssignItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */; };
 		A3ED4A851F197B9F007B8FF4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED4A841F197B9F007B8FF4 /* Person.swift */; };
 		A3ED4A871F1AAACB007B8FF4 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */; };
+		A3ED4A8D1F1AC10A007B8FF4 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED4A8C1F1AC10A007B8FF4 /* PeopleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignItemTableViewController.swift; sourceTree = "<group>"; };
 		A3ED4A841F197B9F007B8FF4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		A3ED4A8C1F1AC10A007B8FF4 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				A30606BE1EE616F60036FEDA /* Main.storyboard */,
 				A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */,
+				A3ED4A8C1F1AC10A007B8FF4 /* PeopleTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3ED4A8D1F1AC10A007B8FF4 /* PeopleTableViewCell.swift in Sources */,
 				A30606BB1EE616F60036FEDA /* AppDelegate.swift in Sources */,
 				A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */,
 				A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */,
