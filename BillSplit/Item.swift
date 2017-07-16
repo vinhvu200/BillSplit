@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Item {
+class Item {
 
     var name: String
     var price: Float
@@ -18,5 +18,22 @@ struct Item {
         self.name = name
         self.price = price
         people = []
+    }
+    
+    func addPerson(person: Person) {
+        
+        people.append(person)
+    }
+    
+    func removePerson(person: Person) {
+        
+        var count:Int = 0
+        for p in people {
+            if p === person {
+                people.remove(at: count)
+                break
+            }
+            count += 1
+        }
     }
 }

@@ -15,11 +15,6 @@ class PriceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for index in 1...5 {
-            
-            let item = Item(name: "item \(index)", price: Float(index))
-            items.append(item)
-        }
     }
 
     override func didReceiveMemoryWarning() {

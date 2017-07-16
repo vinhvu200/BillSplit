@@ -86,8 +86,41 @@ class AssignItemTableViewController: UITableViewController {
         
         let peopleGesture = UITapGestureRecognizer(target: self, action: #selector(peopleImageTapped(_:)))
         cell.people.addGestureRecognizer(peopleGesture)
+        
+        var foundPerson = false
+        for person in items[indexPath.row].people {
+            
+            if person === currentPerson {
+                cell.backgroundColor = UIColor.yellow
+                foundPerson = true
+            }
+        }
+        if foundPerson == false {
+            cell.backgroundColor = UIColor.white
+        }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        if currentPerson != nil {
+            
+            if cell?.backgroundColor == UIColor.white {
+                
+                currentPerson?.addItem(item: items[indexPath.row])
+                items[indexPath.row].addPerson(person: currentPerson!)
+                tableView.reloadData()
+            }
+            else {
+                
+                currentPerson?.removeItem(item: items[indexPath.row])
+                items[indexPath.row].removePerson(person: currentPerson!)
+                tableView.reloadData()
+            }
+        }
     }
     
     func peopleImageTapped(_ sender: UITapGestureRecognizer) {
@@ -103,5 +136,6 @@ extension AssignItemTableViewController: PopUpViewControllerDelegate {
         
         currentPerson = person
         currentPersonLabel.text = currentPerson?.name
+        tableView.reloadData()
     }
 }

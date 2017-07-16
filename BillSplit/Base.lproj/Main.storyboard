@@ -335,7 +335,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No User Selected" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-93-our">
                                     <rect key="frame" x="8" y="8" width="256" height="84"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.29287644496729393" green="0.7415600712435233" blue="0.71488971923065803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NsH-A2-9lZ">
