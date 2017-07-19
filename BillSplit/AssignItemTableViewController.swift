@@ -12,7 +12,7 @@ class AssignItemTableViewController: UITableViewController {
 
     var selectedIndexPathRow: Int?
     var currentPerson: Person? = nil
-    var people: [Person] = []
+    var people: [Person?] = []
     var items: [Item] = []
     
     @IBOutlet weak var currentPersonLabel: UILabel!
@@ -29,6 +29,7 @@ class AssignItemTableViewController: UITableViewController {
         showPeopleImage.addGestureRecognizer(showPeopleGesture)
     }
 
+    // MARK: Tap Gesture Recognizer
     func addPersonImageTapped(_ sender: UITapGestureRecognizer) {
         
         // Create the alert controller.
@@ -64,11 +65,25 @@ class AssignItemTableViewController: UITableViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popUpVC = storyboard.instantiateViewController(withIdentifier: "popUp") as! PopUpViewController
-        popUpVC.people = people
+        popUpVC.people = people as! [Person]
         popUpVC.delegate = self
         popUpVC.modalPresentationStyle = .overCurrentContext
         popUpVC.modalTransitionStyle = .crossDissolve
         self.present(popUpVC, animated: true, completion: nil)
+    }
+    
+    func peopleImageTapped(_ sender: UITapGestureRecognizer) {
+        
+        let tapLocation = sender.location(in: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: tapLocation)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let popUpVC = storyboard.instantiateViewController(withIdentifier: "popUp") as! PopUpViewController
+        popUpVC.people = items[(indexPath?.row)!].people
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        popUpVC.modalTransitionStyle = .crossDissolve
+        self.present(popUpVC, animated: true, completion: nil)
+        
     }
 
     // MARK: - Table view data source
@@ -130,18 +145,19 @@ class AssignItemTableViewController: UITableViewController {
         }
     }
     
-    func peopleImageTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
-        let tapLocation = sender.location(in: self.tableView)
-        let indexPath = self.tableView.indexPathForRow(at: tapLocation)
+        performSegue(withIdentifier: "assignPeopleSegue", sender: nil)
+    }
+    
+    // Mark : Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let popUpVC = storyboard.instantiateViewController(withIdentifier: "popUp") as! PopUpViewController
-        popUpVC.people = items[(indexPath?.row)!].people
-        popUpVC.modalPresentationStyle = .overCurrentContext
-        popUpVC.modalTransitionStyle = .crossDissolve
-        self.present(popUpVC, animated: true, completion: nil)
-        
+        if segue.identifier == "assignPeopleSegue" {
+            if let assignPeopleVC = segue.destination as? AssignPeopleTableViewController {
+                assignPeopleVC.people = people
+            }
+        }
     }
 }
 
