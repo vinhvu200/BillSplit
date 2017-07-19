@@ -22,8 +22,6 @@ class Person {
     
     func addItem(item: Item) {
         items.append(item)
-        owe += item.price
-        print("owe : \(owe)")
     }
     
     func removeItem(item: Item) {
@@ -36,6 +34,5 @@ class Person {
             }
             count += 1
         }
-        owe-=item.price
     }
 }

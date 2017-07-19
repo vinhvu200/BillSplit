@@ -10,6 +10,7 @@ import UIKit
 
 class AssignItemTableViewController: UITableViewController {
 
+    var selectedIndexPathRow: Int?
     var currentPerson: Person? = nil
     var people: [Person] = []
     var items: [Item] = []
@@ -46,6 +47,9 @@ class AssignItemTableViewController: UITableViewController {
                 
                 let person = Person(name: (textField?.text)!)
                 self.people.append(person)
+                self.currentPerson = person
+                self.currentPersonLabel.text = person.name
+                self.tableView.reloadData()
             }
         }))
         
@@ -81,10 +85,13 @@ class AssignItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssignCell", for: indexPath) as! ItemTableViewCell
 
+        cell.people.tag = indexPath.row
+        
         cell.name[0].text = items[indexPath.row].name
         cell.price[0].setTitle("$\(items[indexPath.row].price)", for: .normal)
         
         let peopleGesture = UITapGestureRecognizer(target: self, action: #selector(peopleImageTapped(_:)))
+        
         cell.people.addGestureRecognizer(peopleGesture)
         
         var foundPerson = false
@@ -125,9 +132,17 @@ class AssignItemTableViewController: UITableViewController {
     
     func peopleImageTapped(_ sender: UITapGestureRecognizer) {
         
-        print("hello world 3")
+        let tapLocation = sender.location(in: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: tapLocation)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let popUpVC = storyboard.instantiateViewController(withIdentifier: "popUp") as! PopUpViewController
+        popUpVC.people = items[(indexPath?.row)!].people
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        popUpVC.modalTransitionStyle = .crossDissolve
+        self.present(popUpVC, animated: true, completion: nil)
+        
     }
-    
 }
 
 extension AssignItemTableViewController: PopUpViewControllerDelegate {

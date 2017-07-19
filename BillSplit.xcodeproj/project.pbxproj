@@ -20,6 +20,9 @@
 		A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */; };
 		A307DAEB1F14284B0032C19E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAEA1F14284B0032C19E /* Item.swift */; };
 		A307DAEF1F14869B0032C19E /* AssignItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */; };
+		A3B77BE01F1EBC200041C1E4 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B77BDF1F1EBC200041C1E4 /* DefaultTableViewCell.swift */; };
+		A3B77BE21F1EBC3E0041C1E4 /* ExpansionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B77BE11F1EBC3E0041C1E4 /* ExpansionTableViewCell.swift */; };
+		A3B77BE41F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B77BE31F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift */; };
 		A3ED4A851F197B9F007B8FF4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED4A841F197B9F007B8FF4 /* Person.swift */; };
 		A3ED4A871F1AAACB007B8FF4 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */; };
 		A3ED4A8D1F1AC10A007B8FF4 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED4A8C1F1AC10A007B8FF4 /* PeopleTableViewCell.swift */; };
@@ -43,6 +46,9 @@
 		A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		A307DAEA1F14284B0032C19E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignItemTableViewController.swift; sourceTree = "<group>"; };
+		A3B77BDF1F1EBC200041C1E4 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
+		A3B77BE11F1EBC3E0041C1E4 /* ExpansionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpansionTableViewCell.swift; sourceTree = "<group>"; };
+		A3B77BE31F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignPeopleTableViewController.swift; sourceTree = "<group>"; };
 		A3ED4A841F197B9F007B8FF4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		A3ED4A8C1F1AC10A007B8FF4 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 				A30606BE1EE616F60036FEDA /* Main.storyboard */,
 				A307DAE71F1055CC0032C19E /* ItemTableViewCell.swift */,
 				A3ED4A8C1F1AC10A007B8FF4 /* PeopleTableViewCell.swift */,
+				A3B77BDF1F1EBC200041C1E4 /* DefaultTableViewCell.swift */,
+				A3B77BE11F1EBC3E0041C1E4 /* ExpansionTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 				A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */,
 				A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */,
 				A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */,
+				A3B77BE31F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -279,13 +288,16 @@
 				A3ED4A8D1F1AC10A007B8FF4 /* PeopleTableViewCell.swift in Sources */,
 				A30606BB1EE616F60036FEDA /* AppDelegate.swift in Sources */,
 				A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */,
+				A3B77BE41F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift in Sources */,
 				A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */,
 				A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */,
 				A307DAEB1F14284B0032C19E /* Item.swift in Sources */,
+				A3B77BE01F1EBC200041C1E4 /* DefaultTableViewCell.swift in Sources */,
 				A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */,
 				A3ED4A851F197B9F007B8FF4 /* Person.swift in Sources */,
 				A3ED4A871F1AAACB007B8FF4 /* PopUpViewController.swift in Sources */,
 				A307DAEF1F14869B0032C19E /* AssignItemTableViewController.swift in Sources */,
+				A3B77BE21F1EBC3E0041C1E4 /* ExpansionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

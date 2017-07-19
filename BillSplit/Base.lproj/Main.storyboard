@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ew7-Al-0PE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hvD-OL-jPj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -434,6 +434,95 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CwP-yY-mBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3040.8000000000002" y="182.60869565217394"/>
+        </scene>
+        <!--Assign People Table View Controller-->
+        <scene sceneID="Cly-S7-qpK">
+            <objects>
+                <tableViewController id="hvD-OL-jPj" customClass="AssignPeopleTableViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6wG-pt-QZp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DefaultCell" rowHeight="75" id="xaQ-Sm-LAp" customClass="DefaultTableViewCell" customModule="BillSplit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xaQ-Sm-LAp" id="AHK-qd-nqZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBK-JX-Z7h">
+                                            <rect key="frame" x="8" y="8" width="45" height="58.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysi-YL-Bf9">
+                                            <rect key="frame" x="329.5" y="8" width="37.5" height="58.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ysi-YL-Bf9" secondAttribute="trailing" constant="8" id="3Uv-Ja-L3T"/>
+                                        <constraint firstItem="ysi-YL-Bf9" firstAttribute="top" secondItem="AHK-qd-nqZ" secondAttribute="top" constant="8" id="HqA-9F-HCA"/>
+                                        <constraint firstItem="wBK-JX-Z7h" firstAttribute="top" secondItem="AHK-qd-nqZ" secondAttribute="top" constant="8" id="NB5-iY-4HA"/>
+                                        <constraint firstAttribute="bottom" secondItem="ysi-YL-Bf9" secondAttribute="bottom" constant="8" id="OOg-Zx-UMR"/>
+                                        <constraint firstAttribute="bottom" secondItem="wBK-JX-Z7h" secondAttribute="bottom" constant="8" id="j7p-DJ-3pw"/>
+                                        <constraint firstItem="wBK-JX-Z7h" firstAttribute="leading" secondItem="AHK-qd-nqZ" secondAttribute="leading" constant="8" id="md4-eM-uuE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.95378081670000003" blue="0.41425792420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="personNameLabel" destination="wBK-JX-Z7h" id="UJG-Re-cQs"/>
+                                    <outlet property="personTotalLabel" destination="ysi-YL-Bf9" id="lIr-Vh-fIG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpansionCell" rowHeight="75" id="n3J-rJ-xem" customClass="ExpansionTableViewCell" customModule="BillSplit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n3J-rJ-xem" id="bTo-ev-lZ2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlf-Nc-HHh">
+                                            <rect key="frame" x="8" y="8" width="83" height="58.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-3S-v6p">
+                                            <rect key="frame" x="328" y="8" width="39" height="58.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hlf-Nc-HHh" firstAttribute="top" secondItem="bTo-ev-lZ2" secondAttribute="top" constant="8" id="6pX-i6-IQb"/>
+                                        <constraint firstItem="hlf-Nc-HHh" firstAttribute="leading" secondItem="bTo-ev-lZ2" secondAttribute="leading" constant="8" id="9de-Sw-Ntu"/>
+                                        <constraint firstAttribute="trailing" secondItem="IaW-3S-v6p" secondAttribute="trailing" constant="8" id="lZe-nN-fKb"/>
+                                        <constraint firstAttribute="bottom" secondItem="hlf-Nc-HHh" secondAttribute="bottom" constant="8" id="qWO-Te-Jye"/>
+                                        <constraint firstItem="IaW-3S-v6p" firstAttribute="top" secondItem="bTo-ev-lZ2" secondAttribute="top" constant="8" id="qmY-vH-T7k"/>
+                                        <constraint firstAttribute="bottom" secondItem="IaW-3S-v6p" secondAttribute="bottom" constant="8" id="yLF-ag-Zde"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemNameLabel" destination="hlf-Nc-HHh" id="YzX-xt-JSX"/>
+                                    <outlet property="itemPriceLabel" destination="IaW-3S-v6p" id="zgX-Ku-r0S"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hvD-OL-jPj" id="tll-0f-3nt"/>
+                            <outlet property="delegate" destination="hvD-OL-jPj" id="ORX-w2-nzY"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wHv-LC-2a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4072.8000000000002" y="241.52923538230885"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UDn-vf-E6a">
