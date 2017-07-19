@@ -18,6 +18,8 @@ class AssignItemTableViewController: UITableViewController {
     @IBOutlet weak var currentPersonLabel: UILabel!
     @IBOutlet weak var addPersonImage: UIImageView!
     @IBOutlet weak var showPeopleImage: UIImageView!
+    @IBOutlet weak var taxTextField: UITextField!
+    @IBOutlet weak var tipTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,35 @@ class AssignItemTableViewController: UITableViewController {
         
         let showPeopleGesture = UITapGestureRecognizer(target: self, action: #selector(showPeopleImageTapped(_:)))
         showPeopleImage.addGestureRecognizer(showPeopleGesture)
+    }
+    
+    private func calculate() {
+        
+        var tax: Float
+        var tip: Float
+        
+        for item in items {
+            item.price = item.price / Float(item.people.count)
+        }
+        
+        for person in people {
+            
+            tax = 0
+            tip = 0
+            for item in (person?.items)! {
+                
+                tax += item.price * Float(taxTextField.text!)! / 100
+                tip += item.price * Float(tipTextField.text!)! / 100
+                person?.owe += item.price + tax + tip
+            }
+            let taxItem = Item(name: "tax", price: tax)
+            let tipItem = Item(name: "tip", price: tip)
+            person?.addItem(item: taxItem)
+            person?.addItem(item: tipItem)
+            
+            tax = 0
+            tip = 0
+        }
     }
 
     // MARK: Tap Gesture Recognizer
@@ -154,6 +185,7 @@ class AssignItemTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "assignPeopleSegue" {
+            calculate()
             if let assignPeopleVC = segue.destination as? AssignPeopleTableViewController {
                 assignPeopleVC.people = people
             }
