@@ -64,15 +64,6 @@ class AssignPeopleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return people.count
-
-        /*
-        if let p = people {
-            return p.count
-        }
-        else {
-            return 0
-        }
-        */
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,7 +72,9 @@ class AssignPeopleTableViewController: UITableViewController {
             
             let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as! DefaultTableViewCell
             defaultCell.personNameLabel.text = person.name
-            defaultCell.personTotalLabel.text = String(person.owe)
+            
+            let roundedNumber = String(format: "%.2f", person.owe)
+            defaultCell.personTotalLabel.text = "$\(roundedNumber)"
             
             return defaultCell
         }
@@ -95,7 +88,9 @@ class AssignPeopleTableViewController: UITableViewController {
                 let expandIndex = indexPath.row - parentCellIndex - 1
             
                 expansionCell.itemNameLabel.text = person.items[expandIndex].name
-                expansionCell.itemPriceLabel.text = String(person.items[expandIndex].price)
+                
+                let roundedNumber = String(format: "%.2f", person.items[expandIndex].price)
+                expansionCell.itemPriceLabel.text = "$\(roundedNumber)"
                 
                 return expansionCell
             }
@@ -110,7 +105,7 @@ class AssignPeopleTableViewController: UITableViewController {
             return 75
         }
         else {
-            return 75
+            return 50
         }
     }
     

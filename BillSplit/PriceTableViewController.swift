@@ -37,7 +37,9 @@ class PriceTableViewController: UITableViewController {
         cell.deleteButton[0].tag = indexPath.row
         
         cell.name[0].text = items[indexPath.row].name
-        cell.price[0].setTitle("$\(items[indexPath.row].price)", for: .normal)
+        
+        let twoDecimalPlaces = String(format: "%.2f", items[indexPath.row].price)
+        cell.price[0].setTitle("$\(twoDecimalPlaces)", for: .normal)
         
         let nameChangeGesture = UITapGestureRecognizer(target: self, action: #selector(nameChange(_:)))
         nameChangeGesture.numberOfTapsRequired = 2
@@ -69,6 +71,7 @@ class PriceTableViewController: UITableViewController {
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             
             if !(textField?.text?.isEmpty)! {
+                
                 self.items[sender.tag].price = Float((textField?.text)!)!
                 self.tableView.reloadData()
             }
@@ -83,8 +86,9 @@ class PriceTableViewController: UITableViewController {
     
     func deleteButtonTapped(sender: UIButton!) {
         
-        items.remove(at: sender.tag)
         tableView.reloadData()
+        items.remove(at: sender.tag)
+        tableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .left)
     }
     
     func nameChange(_ sender: UITapGestureRecognizer) {

@@ -37,7 +37,8 @@ class ProcessViewController: UIViewController {
             tesseract.maximumRecognitionTime = 60.0
             tesseract.image = image.g8_blackAndWhite()
             tesseract.recognize()
-            processedTextView.text = tesseract.recognizedText
+            //processedTextView.text = tesseract.recognizedText
+            processedTextView.text = processText(recognizedText: tesseract.recognizedText)
             
             processedTextView.sizeToFit()
             processedTextView.layoutIfNeeded()
@@ -56,13 +57,14 @@ class ProcessViewController: UIViewController {
     // Split the processed text into lines and store
     // them into an array
     // Afterward, remove all the ones that requires
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
-
+    private func processText(recognizedText: String) -> String {
+        
         // Remove all element first before filling it up
         allLines.removeAll()
         
         // Place processed text into new String
-        var text:String! = processedTextView.text
+        //var text:String! = processedTextView.text
+        var text:String! = recognizedText
         
         // Declare range to find \n
         var range:Range<String.Index>?
@@ -95,6 +97,18 @@ class ProcessViewController: UIViewController {
         // Remove all whitespace form allLines array
         allLines = allLines.filter{ !$0.trimmingCharacters(in: .whitespaces).isEmpty}
         
+        var s = ""
+        
+        for line in allLines {
+            s.append(line)
+            s.append("\n")
+        }
+        
+        return s
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+
         performSegue(withIdentifier: "priceSegue", sender: nil)
     }
     

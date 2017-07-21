@@ -134,7 +134,8 @@ class AssignItemTableViewController: UITableViewController {
         cell.people.tag = indexPath.row
         
         cell.name[0].text = items[indexPath.row].name
-        cell.price[0].setTitle("$\(items[indexPath.row].price)", for: .normal)
+        let twoDecimalPlaces = String(format: "%.2f", items[indexPath.row].price)
+        cell.price[0].setTitle("$\(twoDecimalPlaces)", for: .normal)
         
         let peopleGesture = UITapGestureRecognizer(target: self, action: #selector(peopleImageTapped(_:)))
         
@@ -178,7 +179,17 @@ class AssignItemTableViewController: UITableViewController {
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
-        performSegue(withIdentifier: "assignPeopleSegue", sender: nil)
+        if Float(taxTextField.text!) == nil {
+            // Change color of the textField
+        }
+        
+        if Float(tipTextField.text!) == nil {
+            // Change color of textField
+        }
+        
+        if Float(taxTextField.text!) != nil && Float(tipTextField.text!) != nil {
+            performSegue(withIdentifier: "assignPeopleSegue", sender: nil)
+        }
     }
     
     // Mark : Segue
