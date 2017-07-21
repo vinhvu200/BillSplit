@@ -18,7 +18,6 @@ class PriceTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -28,9 +27,20 @@ class PriceTableViewController: UITableViewController {
         
         return items.count
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 85
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! ItemTableViewCell
+        
+        cell.price[0].layer.borderWidth = 1
+        cell.price[0].layer.borderColor = UIColor.green.cgColor
+        
+        cell.deleteButton[0].layer.borderWidth = 1
+        cell.deleteButton[0].layer.borderColor = UIColor.red.cgColor
         
         cell.name[0].tag = indexPath.row
         cell.price[0].tag = indexPath.row

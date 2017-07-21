@@ -132,9 +132,9 @@
 		A307DAE61F1055090032C19E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */,
-				A30606CE1EE627F40036FEDA /* ProcessViewController.swift */,
 				A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */,
+				A30606CE1EE627F40036FEDA /* ProcessViewController.swift */,
+				A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */,
 				A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */,
 				A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */,
 				A3B77BE31F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift */,

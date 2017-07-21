@@ -28,6 +28,14 @@ class ProcessViewController: UIViewController {
         performImageRecognition(image: processImageView.image!)
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        nextButton.layer.cornerRadius = 0.5 * nextButton.bounds.size.width
+        nextButton.layer.borderWidth = 1.25
+        nextButton.layer.borderColor = UIColor.blue.cgColor
+        nextButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
     func performImageRecognition(image: UIImage) {
         
         if let tesseract = G8Tesseract(language: "eng") {
@@ -49,7 +57,7 @@ class ProcessViewController: UIViewController {
             let textHeight = processedTextView.frame.size.height
             let nextButtonHeight = nextButton.frame.size.height
             
-            let newContentHeight = textOrigin_y + textHeight + nextButtonHeight + 10
+            let newContentHeight = textOrigin_y + textHeight + nextButtonHeight + 35
             containerViewHeight.constant = newContentHeight
         }
     }

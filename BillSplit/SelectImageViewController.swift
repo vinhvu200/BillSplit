@@ -11,10 +11,20 @@ import UIKit
 class SelectImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var processButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        processButton.layer.cornerRadius = 0.5 * processButton.bounds.size.width
+        processButton.layer.borderWidth = 1.25
+        processButton.layer.borderColor = UIColor.blue.cgColor
+        processButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -65,6 +75,4 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
     }
-    
-
 }
