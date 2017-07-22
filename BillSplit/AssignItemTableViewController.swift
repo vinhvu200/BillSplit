@@ -280,19 +280,4 @@ extension AssignItemTableViewController: PopUpViewControllerDelegate {
         }
         tableView.reloadData()
     }
-    
-    func deletedUser(person: Person?) {
-        
-        if person != nil {
-            
-            var count = 0
-            for p in people {
-                
-                if p === person {
-                    people.remove(at: count)
-                }
-                count += 1
-            }
-        }
-    }
 }

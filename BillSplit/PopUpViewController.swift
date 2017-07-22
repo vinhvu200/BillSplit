@@ -37,22 +37,6 @@ class PopUpViewController: UIViewController {
         self.view.addSubview(backgroundView)
         self.view.sendSubview(toBack: backgroundView)
     }
-    
-    /*
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-    {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-    {
-        if editingStyle == .delete
-        {
-            yourArray.remove(at: indexPath.row)
-            tblDltRow.reloadData()
-        }
-    }
- */
 
     func backgroundViewTapped(_ sender: UITapGestureRecognizer!) {
         
