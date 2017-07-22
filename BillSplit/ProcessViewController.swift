@@ -30,10 +30,10 @@ class ProcessViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         
-        nextButton.layer.cornerRadius = 0.5 * nextButton.bounds.size.width
-        nextButton.layer.borderWidth = 1.25
-        nextButton.layer.borderColor = UIColor.blue.cgColor
-        nextButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(red: 0.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0).cgColor
+        nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     func performImageRecognition(image: UIImage) {

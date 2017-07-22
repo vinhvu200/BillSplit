@@ -21,10 +21,11 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLayoutSubviews() {
         
-        processButton.layer.cornerRadius = 0.5 * processButton.bounds.size.width
-        processButton.layer.borderWidth = 1.25
-        processButton.layer.borderColor = UIColor.blue.cgColor
-        processButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        processButton.layer.cornerRadius = 5
+        processButton.layer.borderWidth = 1
+        processButton.layer.borderColor = UIColor(red: 0.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0).cgColor
+        //processButton.layer.borderColor = UIColor.darkGray.cgColor
+        processButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     // MARK: UIImagePickerControllerDelegate

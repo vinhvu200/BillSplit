@@ -36,6 +36,8 @@ class PriceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! ItemTableViewCell
         
+        cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.15)
+        
         cell.price[0].layer.borderWidth = 1
         cell.price[0].layer.borderColor = UIColor.green.cgColor
         

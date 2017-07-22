@@ -20,6 +20,7 @@ class AssignItemTableViewController: UITableViewController {
     @IBOutlet weak var showPeopleImage: UIImageView!
     @IBOutlet weak var taxTextField: UITextField!
     @IBOutlet weak var tipTextField: UITextField!
+    @IBOutlet weak var optionView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,22 @@ class AssignItemTableViewController: UITableViewController {
         
         let showPeopleGesture = UITapGestureRecognizer(target: self, action: #selector(showPeopleImageTapped(_:)))
         showPeopleImage.addGestureRecognizer(showPeopleGesture)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        optionView.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        
+        view.endEditing(true)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        let border = CALayer()
+        border.backgroundColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: optionView.frame.height, width: optionView.frame.width, height: 1.5)
+        optionView.layer.addSublayer(border)
     }
     
     private func calculate() {
@@ -50,8 +67,8 @@ class AssignItemTableViewController: UITableViewController {
                 tip += item.price * Float(tipTextField.text!)! / 100
                 person?.owe += item.price + tax + tip
             }
-            let taxItem = Item(name: "tax", price: tax)
-            let tipItem = Item(name: "tip", price: tip)
+            let taxItem = Item(name: "Tax", price: tax)
+            let tipItem = Item(name: "Tip", price: tip)
             person?.addItem(item: taxItem)
             person?.addItem(item: tipItem)
             
@@ -62,6 +79,8 @@ class AssignItemTableViewController: UITableViewController {
 
     // MARK: Tap Gesture Recognizer
     func addPersonImageTapped(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
         
         // Create the alert controller.
         let alert = UIAlertController(title: "Enter Name", message: nil, preferredStyle: .alert)
@@ -80,7 +99,7 @@ class AssignItemTableViewController: UITableViewController {
                 let person = Person(name: (textField?.text)!)
                 self.people.append(person)
                 self.currentPerson = person
-                self.currentPersonLabel.text = person.name
+                self.currentPersonLabel.text = "User : \(person.name)"
                 self.tableView.reloadData()
             }
         }))
@@ -94,6 +113,7 @@ class AssignItemTableViewController: UITableViewController {
     
     func showPeopleImageTapped(_ sender: UITapGestureRecognizer) {
         
+        view.endEditing(true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popUpVC = storyboard.instantiateViewController(withIdentifier: "popUp") as! PopUpViewController
         popUpVC.people = people as! [Person]
@@ -105,6 +125,7 @@ class AssignItemTableViewController: UITableViewController {
     
     func peopleImageTapped(_ sender: UITapGestureRecognizer) {
         
+        view.endEditing(true)
         let tapLocation = sender.location(in: self.tableView)
         let indexPath = self.tableView.indexPathForRow(at: tapLocation)
         
@@ -131,8 +152,9 @@ class AssignItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssignCell", for: indexPath) as! ItemTableViewCell
 
-        cell.people.tag = indexPath.row
+        cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.10)
         
+        cell.people.tag = indexPath.row
         cell.name[0].text = items[indexPath.row].name
         let twoDecimalPlaces = String(format: "%.2f", items[indexPath.row].price)
         cell.price[0].setTitle("$\(twoDecimalPlaces)", for: .normal)
@@ -145,12 +167,17 @@ class AssignItemTableViewController: UITableViewController {
         for person in items[indexPath.row].people {
             
             if person === currentPerson {
-                cell.backgroundColor = UIColor.yellow
+                
+                cell.name[0].textColor = UIColor(red: 0.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0)
+                cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.40)
+                cell.name[0].font = UIFont.boldSystemFont(ofSize: 18.0)
                 foundPerson = true
             }
         }
         if foundPerson == false {
             cell.backgroundColor = UIColor.white
+            cell.name[0].font = UIFont.systemFont(ofSize: 17.0)
+            cell.name[0].textColor = UIColor.black
         }
 
         return cell
@@ -158,8 +185,8 @@ class AssignItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        view.endEditing(true)
         let cell = tableView.cellForRow(at: indexPath)
-        
         if currentPerson != nil {
             
             if cell?.backgroundColor == UIColor.white {
@@ -209,7 +236,9 @@ extension AssignItemTableViewController: PopUpViewControllerDelegate {
     func getSelectedUser(person: Person) {
         
         currentPerson = person
-        currentPersonLabel.text = currentPerson?.name
+        if let user = currentPerson?.name {
+            currentPersonLabel.text = "User: \(user)"
+        }
         tableView.reloadData()
     }
 }

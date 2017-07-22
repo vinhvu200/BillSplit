@@ -73,6 +73,8 @@ class AssignPeopleTableViewController: UITableViewController {
             let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as! DefaultTableViewCell
             defaultCell.personNameLabel.text = person.name
             
+            defaultCell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.4)
+            
             let roundedNumber = String(format: "%.2f", person.owe)
             defaultCell.personTotalLabel.text = "$\(roundedNumber)"
             
@@ -84,6 +86,7 @@ class AssignPeopleTableViewController: UITableViewController {
             
                 let expansionCell = tableView.dequeueReusableCell(withIdentifier: "ExpansionCell", for: indexPath) as! ExpansionTableViewCell
             
+                expansionCell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.15)
                 let parentCellIndex = getParentIndex(expansionIndex: indexPath.row)
                 let expandIndex = indexPath.row - parentCellIndex - 1
             
@@ -102,10 +105,10 @@ class AssignPeopleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if (people[indexPath.row]) != nil {
-            return 75
+            return 60
         }
         else {
-            return 50
+            return 40
         }
     }
     
