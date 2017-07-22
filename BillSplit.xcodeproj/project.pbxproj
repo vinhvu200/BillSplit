@@ -13,7 +13,6 @@
 		A30606C21EE616F60036FEDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A30606C11EE616F60036FEDA /* Assets.xcassets */; };
 		A30606C51EE616F60036FEDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30606C31EE616F60036FEDA /* LaunchScreen.storyboard */; };
 		A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */; };
-		A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30606CE1EE627F40036FEDA /* ProcessViewController.swift */; };
 		A307DADB1F0AE5C50032C19E /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A307DAD91F0ACE1C0032C19E /* libz.1.dylib */; };
 		A307DAE21F0AEFDB0032C19E /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = A307DAE11F0AEFDB0032C19E /* tessdata */; };
 		A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */; };
@@ -39,7 +38,6 @@
 		A30606C41EE616F60036FEDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A30606C61EE616F60036FEDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectImageViewController.swift; sourceTree = "<group>"; };
-		A30606CE1EE627F40036FEDA /* ProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessViewController.swift; sourceTree = "<group>"; };
 		A307DAD91F0ACE1C0032C19E /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		A307DAE11F0AEFDB0032C19E /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				A30606CC1EE61A380036FEDA /* SelectImageViewController.swift */,
-				A30606CE1EE627F40036FEDA /* ProcessViewController.swift */,
 				A307DAE31F103D0C0032C19E /* PriceTableViewController.swift */,
 				A307DAEE1F14869B0032C19E /* AssignItemTableViewController.swift */,
 				A3ED4A861F1AAACB007B8FF4 /* PopUpViewController.swift */,
@@ -290,7 +287,6 @@
 				A30606CD1EE61A380036FEDA /* SelectImageViewController.swift in Sources */,
 				A3B77BE41F1EBC7A0041C1E4 /* AssignPeopleTableViewController.swift in Sources */,
 				A307DAE81F1055CC0032C19E /* ItemTableViewCell.swift in Sources */,
-				A30606CF1EE627F40036FEDA /* ProcessViewController.swift in Sources */,
 				A307DAEB1F14284B0032C19E /* Item.swift in Sources */,
 				A3B77BE01F1EBC200041C1E4 /* DefaultTableViewCell.swift in Sources */,
 				A307DAE41F103D0C0032C19E /* PriceTableViewController.swift in Sources */,

@@ -7,15 +7,85 @@
 //
 
 import UIKit
+import TesseractOCR
 
 class PriceTableViewController: UITableViewController {
 
     var items: [Item] = []
+    var passedImage: UIImage? = nil
+    @IBOutlet weak var processedImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        processedImageView.image = passedImage
+        //performImageRecognition(image: processedImageView.image)
     }
+    
+    /*
+    private func performImageRecognition(image: UIImage) {
+        
+        if let tesseract = G8Tesseract(language: "eng") {
+            
+            tesseract.pageSegmentationMode = .auto
+            tesseract.maximumRecognitionTime = 60.0
+            tesseract.image = image.g8_blackAndWhite()
+            tesseract.recognize()
+            processText(recognizedText: tesseract.recognizedText)
+        }
+    }
+     
+     // Split the processed text into lines and store
+     // them into an array
+     // Afterward, remove all the ones that requires
+     private func processText(recognizedText: String){
+     
+     var allLines: [String] = []
+        
+        // Remove all element first before filling it up
+        // allLines.removeAll()
+     
+        // Place processed text into new String
+        //var text:String! = processedTextView.text
+        var text:String! = recognizedText
+     
+        // Declare range to find \n
+        var range:Range<String.Index>?
+     
+        // range attempts to find \n
+        range = text.range(of: "\n")
+     
+        // Run loop while range is still able to find \n
+        while range != nil {
+     
+            // Get index from beginning of text to \n
+            let index = text.startIndex ..< (range?.lowerBound)!
+     
+            // Create the line of string with index
+            let line = text[index]
+     
+            // Append the line
+            allLines.append(line)
+     
+            // Get index for after the the \n to the end
+            let index2 = text.index(after: (range?.lowerBound)!) ..< text.endIndex
+     
+            // Update the text with the index
+            text = text[index2]
+     
+            // Attempts to find \n
+            range = text.range(of: "\n")
+        }
+     
+        // Remove all whitespace form allLines array
+        allLines = allLines.filter{ !$0.trimmingCharacters(in: .whitespaces).isEmpty}
+     
+        for line in allLines {
+            let item = Item(name: line, price: 0)
+            items.append(item)
+        }
+     }
+    */
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

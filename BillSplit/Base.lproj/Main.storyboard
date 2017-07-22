@@ -89,7 +89,7 @@
                     <connections>
                         <outlet property="photoImageView" destination="tKd-uC-qpe" id="1ud-Tb-Tkw"/>
                         <outlet property="processButton" destination="fHT-Gb-gkr" id="e5N-eA-I32"/>
-                        <segue destination="vlh-SE-XyV" kind="show" identifier="processSegue" id="eaE-Da-LGS"/>
+                        <segue destination="axi-oc-8Tp" kind="show" identifier="priceSegue" id="vAR-gb-XkM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFu-dI-Jet" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -99,109 +99,37 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="80.799999999999997" y="122.78860569715144"/>
-        </scene>
-        <!--Process View Controller-->
-        <scene sceneID="C1I-kX-dQG">
-            <objects>
-                <viewController restorationIdentifier="ProcessViewController" storyboardIdentifier="ProcessViewController" automaticallyAdjustsScrollViewInsets="NO" id="vlh-SE-XyV" customClass="ProcessViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="83I-L0-KDc"/>
-                        <viewControllerLayoutGuide type="bottom" id="nto-qv-Ob5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="243-tN-H77">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-gt-iEP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAO-vz-6Gw" userLabel="Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yjK-7f-O4H">
-                                                <rect key="frame" x="8" y="15" width="359" height="359"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="yjK-7f-O4H" secondAttribute="height" multiplier="1:1" id="Ej7-so-z2N"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar8-Qf-bm9">
-                                                <rect key="frame" x="8" y="389" width="359" height="239.5"/>
-                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                                <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifi-zu-V67">
-                                                <rect key="frame" x="8" y="633.5" width="359" height="34"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                <state key="normal" title="Next">
-                                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="nextButtonTapped:" destination="vlh-SE-XyV" eventType="touchUpInside" id="LmT-kv-1sC"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="Ar8-Qf-bm9" firstAttribute="leading" secondItem="LAO-vz-6Gw" secondAttribute="leading" constant="8" id="3qg-Bb-GQZ"/>
-                                            <constraint firstItem="Ifi-zu-V67" firstAttribute="leading" secondItem="LAO-vz-6Gw" secondAttribute="leading" constant="8" id="7nv-J2-Z6a"/>
-                                            <constraint firstAttribute="height" constant="1000" id="C3V-bs-kiK"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ar8-Qf-bm9" secondAttribute="trailing" constant="8" id="Iwc-wl-tlo"/>
-                                            <constraint firstItem="yjK-7f-O4H" firstAttribute="leading" secondItem="LAO-vz-6Gw" secondAttribute="leading" constant="8" id="JX8-Mi-e4R"/>
-                                            <constraint firstItem="yjK-7f-O4H" firstAttribute="top" secondItem="LAO-vz-6Gw" secondAttribute="top" constant="15" id="Pp7-h2-bT7"/>
-                                            <constraint firstAttribute="trailing" secondItem="yjK-7f-O4H" secondAttribute="trailing" constant="8" id="iiW-tS-KK5"/>
-                                            <constraint firstItem="Ar8-Qf-bm9" firstAttribute="top" secondItem="yjK-7f-O4H" secondAttribute="bottom" constant="15" id="kxS-Bq-POD"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ifi-zu-V67" secondAttribute="trailing" constant="8" id="viR-ry-MSi"/>
-                                            <constraint firstItem="Ifi-zu-V67" firstAttribute="top" secondItem="Ar8-Qf-bm9" secondAttribute="bottom" constant="5" id="z5O-57-vwh"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="LAO-vz-6Gw" secondAttribute="bottom" id="LjV-17-hYE"/>
-                                    <constraint firstItem="LAO-vz-6Gw" firstAttribute="top" secondItem="gRZ-gt-iEP" secondAttribute="top" id="Qey-vm-Eys"/>
-                                    <constraint firstAttribute="trailing" secondItem="LAO-vz-6Gw" secondAttribute="trailing" id="RFS-PO-JSk"/>
-                                    <constraint firstItem="LAO-vz-6Gw" firstAttribute="leading" secondItem="gRZ-gt-iEP" secondAttribute="leading" id="Vnj-fg-aal"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gRZ-gt-iEP" firstAttribute="leading" secondItem="243-tN-H77" secondAttribute="leading" id="B05-pS-wBe"/>
-                            <constraint firstItem="gRZ-gt-iEP" firstAttribute="top" secondItem="83I-L0-KDc" secondAttribute="bottom" id="IKN-Pu-Li9"/>
-                            <constraint firstAttribute="trailing" secondItem="gRZ-gt-iEP" secondAttribute="trailing" id="QFj-1o-fk5"/>
-                            <constraint firstItem="LAO-vz-6Gw" firstAttribute="width" secondItem="243-tN-H77" secondAttribute="width" id="YSe-zv-iVe"/>
-                            <constraint firstItem="nto-qv-Ob5" firstAttribute="top" secondItem="gRZ-gt-iEP" secondAttribute="bottom" id="o1v-EU-rtN"/>
-                        </constraints>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="800"/>
-                    <connections>
-                        <outlet property="containerViewHeight" destination="C3V-bs-kiK" id="WM5-Cf-LGN"/>
-                        <outlet property="nextButton" destination="Ifi-zu-V67" id="T4z-dw-hWb"/>
-                        <outlet property="processImageView" destination="yjK-7f-O4H" id="TyF-6V-Oav"/>
-                        <outlet property="processedTextView" destination="Ar8-Qf-bm9" id="9Bc-ld-78d"/>
-                        <outlet property="scrollView" destination="gRZ-gt-iEP" id="bJz-g8-Unz"/>
-                        <segue destination="axi-oc-8Tp" kind="show" identifier="priceSegue" id="btt-xE-o8K"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hu7-hZ-krv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1060" y="182.60869565217394"/>
+            <point key="canvasLocation" x="970" y="183"/>
         </scene>
         <!--Prices-->
         <scene sceneID="f4h-uU-yk5">
             <objects>
                 <tableViewController id="axi-oc-8Tp" customClass="PriceTableViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" id="h3f-B6-pyK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="rue-CD-Uye">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="371"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OQF-LF-hZP">
+                                    <rect key="frame" x="16" y="8" width="343" height="343"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="OQF-LF-hZP" secondAttribute="height" multiplier="1:1" id="fvW-N4-hla"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="OQF-LF-hZP" secondAttribute="trailing" constant="16" id="62F-Pn-XV5"/>
+                                <constraint firstItem="OQF-LF-hZP" firstAttribute="top" secondItem="rue-CD-Uye" secondAttribute="top" constant="8" id="Rd5-xF-oHE"/>
+                                <constraint firstItem="OQF-LF-hZP" firstAttribute="leading" secondItem="rue-CD-Uye" secondAttribute="leading" constant="16" id="jO8-jc-bSf"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PriceCell" rowHeight="100" id="HEK-YC-nMd" customClass="ItemTableViewCell" customModule="BillSplit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="399" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HEK-YC-nMd" id="QE0-Pa-RY1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -270,12 +198,13 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="processedImageView" destination="OQF-LF-hZP" id="5O7-Is-kQe"/>
                         <segue destination="qaa-B3-WKz" kind="show" identifier="assignSegue" id="MXj-B4-KBe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1D-2q-URF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048.8000000000002" y="182.60869565217394"/>
+            <point key="canvasLocation" x="2048.8000000000002" y="182.15892053973016"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="Mg6-sn-OJv">
@@ -351,7 +280,7 @@
             <objects>
                 <tableViewController id="qaa-B3-WKz" customClass="AssignItemTableViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="nQd-fJ-RSb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="kJL-gF-P6B">
@@ -537,7 +466,7 @@
             <objects>
                 <tableViewController id="hvD-OL-jPj" customClass="AssignPeopleTableViewController" customModule="BillSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6wG-pt-QZp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -650,7 +579,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Bv-Zk-EnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-858.39999999999998" y="122.78860569715144"/>
+            <point key="canvasLocation" x="22" y="182"/>
         </scene>
     </scenes>
     <resources>

@@ -91,6 +91,11 @@ class AssignPeopleTableViewController: UITableViewController {
                 let expandIndex = indexPath.row - parentCellIndex - 1
             
                 expansionCell.itemNameLabel.text = person.items[expandIndex].name
+                if expansionCell.itemNameLabel.text == "Tax" ||
+                    expansionCell.itemNameLabel.text == "Tip" {
+                    
+                    expansionCell.itemNameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+                }
                 
                 let roundedNumber = String(format: "%.2f", person.items[expandIndex].price)
                 expansionCell.itemPriceLabel.text = "$\(roundedNumber)"

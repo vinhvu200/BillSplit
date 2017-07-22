@@ -50,8 +50,10 @@ class AssignItemTableViewController: UITableViewController {
     
     private func calculate() {
         
-        var tax: Float
-        var tip: Float
+        var tax: Float = 0
+        var tip: Float = 0
+        var totalTax: Float = 0
+        var totalTip: Float = 0
         
         for item in items {
             item.price = item.price / Float(item.people.count)
@@ -59,21 +61,27 @@ class AssignItemTableViewController: UITableViewController {
         
         for person in people {
             
-            tax = 0
-            tip = 0
             for item in (person?.items)! {
                 
                 tax += item.price * Float(taxTextField.text!)! / 100
                 tip += item.price * Float(tipTextField.text!)! / 100
+                totalTax += tax
+                totalTip += tip
                 person?.owe += item.price + tax + tip
+                
+                //print("name : \(person?.name) item : \(item.name) owe : \(person?.owe)")
+                //print("price : \(item.price) -- tax : \(tax) -- tip : \(tip)")
+                
+                tax = 0
+                tip = 0
             }
-            let taxItem = Item(name: "Tax", price: tax)
-            let tipItem = Item(name: "Tip", price: tip)
+            let taxItem = Item(name: "Tax", price: totalTax)
+            let tipItem = Item(name: "Tip", price: totalTip)
             person?.addItem(item: taxItem)
             person?.addItem(item: tipItem)
             
-            tax = 0
-            tip = 0
+            totalTax = 0
+            totalTip = 0
         }
     }
 
@@ -96,7 +104,18 @@ class AssignItemTableViewController: UITableViewController {
             
             if !(textField?.text?.isEmpty)! {
                 
-                let person = Person(name: (textField?.text)!)
+                /*
+                 let first = String(characters.prefix(1)).capitalized
+                 let other = String(characters.dropFirst())
+                 return first + other
+                */
+                //var person = Person(name: (textField?.text)!)
+                var name = (textField?.text)!
+                let first = String(name.characters.prefix(1)).capitalized
+                let other = String(name.characters.dropFirst())
+                let person = Person(name: first+other)
+                
+                //let person = Person(name: (textField?.text)!)
                 self.people.append(person)
                 self.currentPerson = person
                 self.currentPersonLabel.text = "User : \(person.name)"
@@ -206,16 +225,35 @@ class AssignItemTableViewController: UITableViewController {
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
-        if Float(taxTextField.text!) == nil {
-            // Change color of the textField
+        var flag1 = false
+        var flag2 = false
+        if let tax = Float(taxTextField.text!) {
+            
+            if tax >= 0.0 && tax <= 100.0 {
+                flag1 = true
+            }
         }
         
-        if Float(tipTextField.text!) == nil {
-            // Change color of textField
+        if let tip = Float(tipTextField.text!) {
+            
+            if tip >= 0.0 && tip <= 100.0 {
+                flag2 = true
+            }
         }
         
-        if Float(taxTextField.text!) != nil && Float(tipTextField.text!) != nil {
+        if flag1 && flag2 {
             performSegue(withIdentifier: "assignPeopleSegue", sender: nil)
+        }
+        
+        if !flag1 {
+            taxTextField.layer.cornerRadius = 5
+            taxTextField.layer.borderWidth = 1.5
+            taxTextField.layer.borderColor = UIColor.red.cgColor
+        }
+        if !flag2 {
+            tipTextField.layer.cornerRadius = 5
+            tipTextField.layer.borderWidth = 1.5
+            tipTextField.layer.borderColor = UIColor.red.cgColor
         }
     }
     
@@ -223,8 +261,9 @@ class AssignItemTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "assignPeopleSegue" {
-            calculate()
+            
             if let assignPeopleVC = segue.destination as? AssignPeopleTableViewController {
+                calculate()
                 assignPeopleVC.people = people
             }
         }
@@ -240,5 +279,20 @@ extension AssignItemTableViewController: PopUpViewControllerDelegate {
             currentPersonLabel.text = "User: \(user)"
         }
         tableView.reloadData()
+    }
+    
+    func deletedUser(person: Person?) {
+        
+        if person != nil {
+            
+            var count = 0
+            for p in people {
+                
+                if p === person {
+                    people.remove(at: count)
+                }
+                count += 1
+            }
+        }
     }
 }
