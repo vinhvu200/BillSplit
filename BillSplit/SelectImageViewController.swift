@@ -11,6 +11,8 @@ import TesseractOCR
 
 class SelectImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // Hold all the items to be viewed in
+    // the table view
     var items: [Item] = []
     
     @IBOutlet weak var photoImageView: UIImageView!
@@ -23,22 +25,37 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLayoutSubviews() {
         
+        // Create the border and the color for the process Button
+        // Makes sure to pad the letters a bit as well
         processButton.layer.cornerRadius = 5
         processButton.layer.borderWidth = 1
         processButton.layer.borderColor = UIColor(red: 0.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0).cgColor
-        //processButton.layer.borderColor = UIColor.darkGray.cgColor
         processButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     // MARK: Private Functions
     
+    /*
+     
+        -This function serves the purpose of taking in an image
+        and then recognizing it with the tesseract.
+        -Afterward, it calls the processText function in order to
+        process the recognized image into the 'items' array
+    */
     private func performImageRecognition(image: UIImage) {
         
+        // Initiate Tessearct
         if let tesseract = G8Tesseract(language: "eng") {
             
+            // Set options for the tessearct
             tesseract.pageSegmentationMode = .auto
             tesseract.maximumRecognitionTime = 60.0
+            
+            // Turns the image into black and white to be analyzed better
             tesseract.image = image.g8_blackAndWhite()
+            
+            // Recognize the text and the process it so it will fit
+            // into the items array
             tesseract.recognize()
             processText(recognizedText: tesseract.recognizedText)
         }
@@ -101,6 +118,10 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
+    /*
+        -This function serves the purpose to taking the selected image
+        and displaying it in the photoImageView set up in storyboard
+    */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // The info dictionary may contain multiple representations of the image. You want to use the original.
@@ -116,6 +137,10 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     // MARK: Action
+    /*
+        -This function serves the purpose to opening up the User's photo library
+        and allowing them to choose which one they want
+    */
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
     
         let imagePickerController = UIImagePickerController()
@@ -124,6 +149,10 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    /*
+     -This function serves the purpose of performing the segue if
+     a photo besides the default photo is selected
+    */
     @IBAction func processImageTapped(_ sender: UIButton) {
         
         //let image = photoImageView.image
@@ -135,6 +164,10 @@ class SelectImageViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     // MARK: Segue
+    /*
+        -This function checks if the correct segue is called so that 
+        it can pass over an image and the items array to be viewed
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "priceSegue" {

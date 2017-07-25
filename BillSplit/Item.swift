@@ -20,11 +20,15 @@ class Item {
         people = []
     }
     
+    // Add person to array of people who holds
+    // responsibility for this item
     func addPerson(person: Person) {
         
         people.append(person)
     }
     
+    // remove person from people array who holds
+    // responsibility for this item
     func removePerson(person: Person) {
         
         var count:Int = 0
