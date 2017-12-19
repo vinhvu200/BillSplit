@@ -1,10 +1,8 @@
 # BillSplit
-
-# Note
 I made this project to get my hands dirty with iOS development. In retrospect, this might take longer than necessary but at least it's neat :)
+
 ... Also, sorry for the image sizing in advance
 
-# What it does
 This app helps you to split a large bill out fairly among friends (especially if people are sharing plates and/or drinks)
 
 # Step One
